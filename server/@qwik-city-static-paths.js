@@ -1,13 +1,13 @@
-const staticPaths = new Set(["/jon-blank-music/","/jon-blank-music/contact/","/jon-blank-music/favicon.svg","/jon-blank-music/lessons/","/jon-blank-music/manifest.json","/jon-blank-music/music/","/jon-blank-music/q-manifest.json","/jon-blank-music/robots.txt","/jon-blank-music/sitemap.xml"]);
+const staticPaths = new Set(["/","/contact/","/favicon.svg","/lessons/","/manifest.json","/music/","/q-manifest.json","/robots.txt","/sitemap.xml"]);
 function isStaticPath(method, url) {
   if (method.toUpperCase() !== 'GET') {
     return false;
   }
   const p = url.pathname;
-  if (p.startsWith("/jon-blank-music/build/")) {
+  if (p.startsWith("/build/")) {
     return true;
   }
-  if (p.startsWith("/jon-blank-music/assets/")) {
+  if (p.startsWith("/assets/")) {
     return true;
   }
   if (staticPaths.has(p)) {
