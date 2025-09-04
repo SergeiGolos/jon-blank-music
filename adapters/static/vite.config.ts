@@ -4,7 +4,7 @@ import baseConfig from "../../vite.config";
 
 export default extendConfig(baseConfig, () => {
   return {
-    base: "/jon-blank-music/",
+    base: "/",
     build: {
       ssr: true,
       rollupOptions: {
@@ -13,7 +13,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://sergeigolos.github.io/",
+        origin: "https://sergeigolos.github.io/jon-blank-music/",
       }),
     ],
   };
