@@ -22,12 +22,13 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
+    base: "/jon-blank-music/",
     plugins: [
       qwikCity(),
       qwikVite(),
       tsconfigPaths({ root: "." }),
       tailwindcss(),
-      ...(command === "build" && mode === "production" ? [staticAdapter({ origin: 'https://SergeiGolos.github.io/copilot-do-qwik' })] : []),
+      ...(command === "build" && mode === "production" ? [staticAdapter({ origin: 'https://SergeiGolos.github.io/jon-blank-music/' })] : []),
     ],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {

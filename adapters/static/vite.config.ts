@@ -4,6 +4,7 @@ import baseConfig from "../../vite.config";
 
 export default extendConfig(baseConfig, () => {
   return {
+    base: "/jon-blank-music/",
     build: {
       ssr: true,
       rollupOptions: {
@@ -12,7 +13,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://yoursite.qwik.dev",
+        origin: "https://sergeigolos.github.io/jon-blank-music/",
       }),
     ],
   };
