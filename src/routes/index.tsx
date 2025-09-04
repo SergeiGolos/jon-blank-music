@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
@@ -28,15 +29,15 @@ export default component$(() => {
             </p>
             
             <div class="flex flex-wrap justify-center gap-4">
-              <a href="/lessons" class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+              <Link href="/lessons" class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                 Book Lessons
-              </a>
-              <a href="/music" class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
+              </Link>
+              <Link href="/music" class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
                 Listen to Music
-              </a>
-              <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+              </Link>
+              <Link href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                 Contact Jon
-              </a>
+              </Link>
             </div>
           </div>
 

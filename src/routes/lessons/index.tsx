@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
@@ -22,9 +23,9 @@ export default component$(() => {
             <p class="text-xl text-amber-200 mb-8">
               Comprehensive instruction for all ages and skill levels
             </p>
-            <a href="/" class="text-white/70 hover:text-white transition-colors">
+            <Link href="/" class="text-white/70 hover:text-white transition-colors">
               ← Back to Home
-            </a>
+            </Link>
           </div>
 
           {/* Lesson Types */}
