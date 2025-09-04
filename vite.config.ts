@@ -22,19 +22,25 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    base: "/",
+    base: "/jon-blank-music/",
     plugins: [
       qwikCity(),
       qwikVite(),
       tsconfigPaths({ root: "." }),
       tailwindcss(),
-      ...(command === "build" && mode === "production" ? [staticAdapter({ origin: 'https://SergeiGolos.github.io/' })] : []),
+      ...(command === "build" && mode === "production" ? [staticAdapter({ origin: 'https://SergeiGolos.github.io/jon-blank-music/' })] : []),
     ],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
       // For example ['better-sqlite3'] if you use that in server functions.
       exclude: [],
+    },
+    build: {
+      ssr: true,
+      rollupOptions: {
+        input: ["@qwik-city-plan"],
+      },
     },
     /**
      * This is an advanced setting. It improves the bundling of your server code. To use it, make sure you understand when your consumed packages are dependencies or dev dependencies. (otherwise things will break in production)
