@@ -23,7 +23,7 @@ export default component$(() => {
             <p class="text-xl text-amber-200 mb-8">
               Get in touch for lessons, performances, or collaborations
             </p>
-            <Link href="/" class="text-white/70 hover:text-white transition-colors">
+            <Link href={import.meta.env.BASE_URL} class="text-white/70 hover:text-white transition-colors">
               ← Back to Home
             </Link>
           </div>

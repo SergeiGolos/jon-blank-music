@@ -23,7 +23,7 @@ export default component$(() => {
             <p class="text-xl text-amber-200 mb-8">
               Comprehensive instruction for all ages and skill levels
             </p>
-            <Link href="/" class="text-white/70 hover:text-white transition-colors">
+            <Link href={import.meta.env.BASE_URL} class="text-white/70 hover:text-white transition-colors">
               ← Back to Home
             </Link>
           </div>
@@ -129,7 +129,7 @@ export default component$(() => {
               <p class="text-white/80">
                 <strong>Studio Location:</strong> Seymour, Connecticut
               </p>
-              <a href="/contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg mt-4">
+              <a href={`${import.meta.env.BASE_URL}contact`} class="inline-block bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg mt-4">
                 Get in Touch
               </a>
             </div>

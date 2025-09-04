@@ -29,13 +29,13 @@ export default component$(() => {
             </p>
             
             <div class="flex flex-wrap justify-center gap-4">
-              <Link href="/lessons" class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+              <Link href={`${import.meta.env.BASE_URL}lessons`} class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                 Book Lessons
               </Link>
-              <Link href="/music" class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
+              <Link href={`${import.meta.env.BASE_URL}music`} class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
                 Listen to Music
               </Link>
-              <Link href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+              <Link href={`${import.meta.env.BASE_URL}contact`} class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                 Contact Jon
               </Link>
             </div>
