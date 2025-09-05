@@ -1,4 +1,11 @@
-[
+export interface ChartData {
+  title: string;
+  year: number;
+  chartNumber: number;
+  links: { platform: string; url: string }[];
+}
+
+export const chartData: ChartData[] = [
   {
     "title": "Connect The Dots",
     "year": 2018,
@@ -35,4 +42,4 @@
       { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20east%20end%20sojourn" }
     ]
   }
-]
+];

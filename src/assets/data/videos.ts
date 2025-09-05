@@ -1,4 +1,12 @@
-[
+export interface VideoData {
+  title: string;
+  description: string;
+  videoLink: string;
+  group: "Video Performances" | "Ensemble Performances";
+  image?: string;
+}
+
+export const videosData: VideoData[] = [
   {
     "title": "Tennessee Whiskey (Saxophone Cover)",
     "description": "Solo tenor saxophone performance showcasing Jon's smooth tone and improvisational skills.",
@@ -39,4 +47,4 @@
     "videoLink": "https://www.youtube.com/results?search_query=jon+garcia+clave+afro+rican+jazz",
     "group": "Ensemble Performances"
   }
-]
+];
