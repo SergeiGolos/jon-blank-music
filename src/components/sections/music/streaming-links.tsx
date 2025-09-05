@@ -11,25 +11,25 @@ export default component$(() => {
         <a href="https://open.spotify.com/search/jon%20blanck"
            target="_blank"
            rel="noopener noreferrer"
-           class="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg transition-colors font-semibold">
+           class="bg-transparent border-2 border-green-500 text-white hover:bg-green-500 hover:text-white px-6 py-4 rounded-lg transition-colors font-semibold">
           🎵 Spotify
         </a>
         <a href="https://music.apple.com/search?term=jon%20blanck"
            target="_blank"
            rel="noopener noreferrer"
-           class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-4 rounded-lg transition-colors font-semibold">
+           class="bg-transparent border-2 border-gray-500 text-white hover:bg-gray-500 hover:text-white px-6 py-4 rounded-lg transition-colors font-semibold">
           🍎 Apple Music
         </a>
         <a href="https://www.youtube.com/results?search_query=jon+blanck+music"
            target="_blank"
            rel="noopener noreferrer"
-           class="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg transition-colors font-semibold">
+           class="bg-transparent border-2 border-red-500 text-white hover:bg-red-500 hover:text-white px-6 py-4 rounded-lg transition-colors font-semibold">
           📺 YouTube
         </a>
         <a href="https://www.amazon.com/s?k=jon+blanck+music"
            target="_blank"
            rel="noopener noreferrer"
-           class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-4 rounded-lg transition-colors font-semibold">
+           class="bg-transparent border-2 border-orange-500 text-white hover:bg-orange-500 hover:text-white px-6 py-4 rounded-lg transition-colors font-semibold">
           🛒 Amazon Music
         </a>
       </div>

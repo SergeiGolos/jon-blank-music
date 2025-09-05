@@ -37,8 +37,8 @@ export default component$(() => {
                   target="_blank"
                   rel="noopener noreferrer"
                   class={`block px-4 py-2 rounded text-sm transition-colors ${
-                    link.platform === 'Spotify' ? 'bg-green-600 hover:bg-green-700 text-white' :
-                    'bg-gray-800 hover:bg-gray-900 text-white'
+                    link.platform === 'Spotify' ? 'bg-transparent border-2 border-green-500 text-white hover:bg-green-500 hover:text-white' :
+                    'bg-transparent border-2 border-gray-500 text-white hover:bg-gray-500 hover:text-white'
                   }`}
                 >
                   🎵 {link.platform}
