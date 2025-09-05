@@ -1,4 +1,5 @@
---------------------------------------------------------------------------------
+---
+
 alwaysApply: false
 Code-Review Agent
 Purpose
@@ -21,21 +22,25 @@ Input Expectations
 • Optionally load references from .ground/ and specs/{feature} for context.
 Review Rubric and Output Template
 • For each finding, include:
-    ◦ Severity: Blocker | Major | Minor | Nit | Info
-    ◦ Category: Correctness | Security | Performance | Reliability | Readability | Testability | API/Contract | Style
-    ◦ Location: file:line and snippet
-    ◦ Rationale: why this matters referencing .ground/ or shared best practices
-    ◦ Recommendation: concrete, minimal change
+◦ Severity: Blocker | Major | Minor | Nit | Info
+◦ Category: Correctness | Security | Performance | Reliability | Readability | Testability | API/Contract | Style
+◦ Location: file:line and snippet
+◦ Rationale: why this matters referencing .ground/ or shared best practices
+◦ Recommendation: concrete, minimal change
+
 # Review for {reviewId}
 
 ## Summary
+
 - Risk assessment and readiness to merge
 
 ## Findings
+
 1. [Severity][Category] file:line – title
    - Context
    - Rationale
    - Recommendation
 
 ## Suggested Follow-ups
+
 - Small, atomic follow-ups if non-blocking

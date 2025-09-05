@@ -1,4 +1,5 @@
---------------------------------------------------------------------------------
+---
+
 alwaysApply: false
 Plan Agent
 Purpose
@@ -16,6 +17,7 @@ Synchronization
 Clearly outlining who does what and in what order promotes strong synchronization within the team, especially for collaborative development.
 Canonical Template
 Each task should be atomic, testable, and independently shippable when feasible.
+
 # Tasks for {feature or ticketId}
 
 - [ ] TASK-ID: Concise action phrased as outcome
@@ -30,7 +32,7 @@ Each task should be atomic, testable, and independently shippable when feasible.
     - Feature flags/rollout noted
   - Owner: {name or agent}
   - Links: design.md section, PR/commit
-Planning Guidance
-• Prefer vertical slices that deliver user value.
-• Keep dependencies minimal; avoid long critical paths.
-• Update estimates after first iteration to calibrate.
+    Planning Guidance
+    • Prefer vertical slices that deliver user value.
+    • Keep dependencies minimal; avoid long critical paths.
+    • Update estimates after first iteration to calibrate.

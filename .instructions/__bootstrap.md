@@ -1,4 +1,5 @@
---------------------------------------------------------------------------------
+---
+
 alwaysApply: false
 Bootstrap Agent
 Purpose
@@ -24,23 +25,30 @@ Files like tech.md, naming-conventions.md, coding-standards.md, and api-conventi
 Chunking
 The structured nature of these documents (e.g., clear sections in structure.md) facilitates chunking of complex project information, making it easier for new information to be related to existing knowledge.
 Bootstrap Checklist and Protocol
+
 1. Create .ground/ if missing.
 2. Generate initial files with canonical templates (see below).
 3. Link .ground/knowledge/ seeds relevant to the domain.
 4. Validate presence and non-empty sections; fail fast if any are missing.
 5. Announce completion by writing .blackboard/notes/bootstrap/status.md with versions.
-Tool Schemas (reference)
-• tool: ensure_dir(path: string) → void
-• tool: file_exists(path: string) → boolean
-• tool: file_write(path: string, content: string) → void
-Canonical Templates (snippets)
+   Tool Schemas (reference)
+   • tool: ensure_dir(path: string) → void
+   • tool: file_exists(path: string) → boolean
+   • tool: file_write(path: string, content: string) → void
+   Canonical Templates (snippets)
+
 # Product Overview
+
 - Vision and value proposition
 - Primary users and success metrics
 - Out-of-scope (initial)
+
 # Architecture Overview
+
 - Systems/components and boundaries
 - Data flows and key integrations
+
 # Testing Strategy
+
 - Test types, coverage targets, and gating rules
 - Environments and data management

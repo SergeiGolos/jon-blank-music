@@ -4,8 +4,14 @@
     "year": 2018,
     "chartNumber": 1,
     "links": [
-      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20connect%20the%20dots" },
-      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20connect%20the%20dots" }
+      {
+        "platform": "Spotify",
+        "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20connect%20the%20dots"
+      },
+      {
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20connect%20the%20dots"
+      }
     ]
   },
   {
@@ -13,8 +19,14 @@
     "year": 2013,
     "chartNumber": 5,
     "links": [
-      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20it's%20about%20time" },
-      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20it's%20about%20time" }
+      {
+        "platform": "Spotify",
+        "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20it's%20about%20time"
+      },
+      {
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20it's%20about%20time"
+      }
     ]
   },
   {
@@ -22,8 +34,14 @@
     "year": 2019,
     "chartNumber": 6,
     "links": [
-      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20night%20mode" },
-      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20night%20mode" }
+      {
+        "platform": "Spotify",
+        "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20night%20mode"
+      },
+      {
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20night%20mode"
+      }
     ]
   },
   {
@@ -31,8 +49,14 @@
     "year": 2016,
     "chartNumber": 8,
     "links": [
-      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20east%20end%20sojourn" },
-      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20east%20end%20sojourn" }
+      {
+        "platform": "Spotify",
+        "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20east%20end%20sojourn"
+      },
+      {
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20east%20end%20sojourn"
+      }
     ]
   }
 ]

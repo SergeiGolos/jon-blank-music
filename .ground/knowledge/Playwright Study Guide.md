@@ -116,7 +116,7 @@ approach.
 
 Cypress is another modern framework known for its excellent developer
 experience and interactive test runner. The fundamental difference lies
-in its architecture. Cypress runs the test code *inside* the browser, in
+in its architecture. Cypress runs the test code _inside_ the browser, in
 the same run loop as the application.
 
 - **Scope and Control:** Playwright's out-of-process architecture gives
@@ -145,15 +145,15 @@ complex, multi-faceted web applications.
 
 #### Table: Playwright vs. Cypress vs. Selenium at a Glance
 
-| Feature | Playwright | Cypress | Selenium |
-|----|----|----|----|
-| **Architecture** | Out-of-process (via WebSocket) | In-process (runs in the browser) | Out-of-process (via WebDriver/HTTP) |
-| **Browser Support** | Chromium, WebKit, Firefox (unified API) | Chromium-based browsers, limited Firefox/WebKit | Extensive, but requires separate drivers |
-| **Language Support** | TS, JS, Python, Java,.NET | JavaScript, TypeScript | Java, Python, C#, Ruby, JS, etc. |
-| **Speed** | Very Fast | Fast | Slower |
-| **Debugging** | Excellent (Trace Viewer, VS Code Debugger) | Excellent (Interactive Test Runner, Time Travel) | Basic (Logs, Screenshots) |
-| **Multi-Tab/Origin** | Fully supported | Not supported | Supported |
-| **Ideal Use Case** | Complex E2E tests, cross-browser validation, multi-user scenarios | Frontend component & E2E tests, rapid feedback for JS/TS teams | Large-scale, cross-browser testing in established ecosystems |
+| Feature              | Playwright                                                        | Cypress                                                        | Selenium                                                     |
+| -------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------ |
+| **Architecture**     | Out-of-process (via WebSocket)                                    | In-process (runs in the browser)                               | Out-of-process (via WebDriver/HTTP)                          |
+| **Browser Support**  | Chromium, WebKit, Firefox (unified API)                           | Chromium-based browsers, limited Firefox/WebKit                | Extensive, but requires separate drivers                     |
+| **Language Support** | TS, JS, Python, Java,.NET                                         | JavaScript, TypeScript                                         | Java, Python, C#, Ruby, JS, etc.                             |
+| **Speed**            | Very Fast                                                         | Fast                                                           | Slower                                                       |
+| **Debugging**        | Excellent (Trace Viewer, VS Code Debugger)                        | Excellent (Interactive Test Runner, Time Travel)               | Basic (Logs, Screenshots)                                    |
+| **Multi-Tab/Origin** | Fully supported                                                   | Not supported                                                  | Supported                                                    |
+| **Ideal Use Case**   | Complex E2E tests, cross-browser validation, multi-user scenarios | Frontend component & E2E tests, rapid feedback for JS/TS teams | Large-scale, cross-browser testing in established ecosystems |
 
 ### 1.4. Setting Up Your Development Environment
 
@@ -260,13 +260,13 @@ the structure of the default example.spec.ts.<sup>11</sup>
 > TypeScript
 
 // 1. Import the necessary modules from the Playwright test runner.  
-import { test, expect } from '@playwright/test';  
-  
+import { test, expect } from '@playwright/test';
+
 // 2. Define a test case using the test() function.  
 test('has title', async ({ page }) =\> {  
 // 3. Test logic goes here.  
-await page.goto('https://playwright.dev/');  
-  
+await page.goto('https://playwright.dev/');
+
 // 4. Make an assertion to verify the outcome.  
 await expect(page).toHaveTitle(/Playwright/);  
 });
@@ -315,27 +315,27 @@ Here is the complete, annotated code for this test.
 
 > TypeScript
 
-import { test, expect } from '@playwright/test';  
-  
+import { test, expect } from '@playwright/test';
+
 test('Successful login to demo application', async ({ page }) =\> {  
 // Step 1: Navigation  
 // Use the page fixture's goto method to navigate to the target URL.  
 // Playwright will wait for the page to fully load before proceeding.  
 await
-page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');  
-  
+page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
+
 // Step 2: Interaction  
 // Locate the email input field by its user-visible label and fill it.  
 await page.getByLabel('E-Mail
-Address').fill('your-demo-email@example.com');  
-  
+Address').fill('your-demo-email@example.com');
+
 // Locate the password input field by its label and fill it.  
-await page.getByLabel('Password').fill('your-demo-password');  
-  
+await page.getByLabel('Password').fill('your-demo-password');
+
 // Locate the login button by its accessible role and name, then click
 it.  
-await page.getByRole('button', { name: 'Login' }).click();  
-  
+await page.getByRole('button', { name: 'Login' }).click();
+
 // Step 3: Assertion  
 // After login, the page should redirect to the account dashboard.  
 // We verify this by asserting that a specific heading is now visible.  
@@ -372,7 +372,6 @@ Here are the most recommended locators, with examples:
 - page.getByRole(): This is the preferred way to locate elements. It
   finds elements by their ARIA role, which is how assistive technologies
   perceive the page.
-
   - await page.getByRole('button', { name: 'Sign in' }).click();
     <sup>11</sup>
 
@@ -381,18 +380,15 @@ Here are the most recommended locators, with examples:
 - page.getByText(): Locates an element by the text it contains. It's
   useful for finding non-interactive elements like paragraphs or list
   items.
-
   - await expect(page.getByText('Your order has been
     confirmed')).toBeVisible(); <sup>21</sup>
 
 - page.getByLabel(): Specifically designed for form controls. It finds
   an \<input\> element associated with a \<label\>.
-
   - await page.getByLabel('Username or email address').fill('testuser');
     <sup>20</sup>
 
 - page.getByPlaceholder(): Finds an input by its placeholder text.
-
   - await page.getByPlaceholder('Enter your
     email').fill('user@example.com'); <sup>19</sup>
 
@@ -400,7 +396,6 @@ Here are the most recommended locators, with examples:
   uniquely identified by user-facing attributes, the recommended
   practice is to add a data-testid attribute to the element in the
   application's source code. This provides a stable, test-specific hook.
-
   - await page.getByTestId('submit-button').click(); <sup>21</sup>
 
 Locators can be **chained** to narrow down the search scope. For
@@ -415,20 +410,20 @@ await page
 .click();
 
 This code first finds all list items, filters them to the one containing
-"Product 2", and then finds the "Add to cart" button *within that
-specific item*.<sup>19</sup>
+"Product 2", and then finds the "Add to cart" button _within that
+specific item_.<sup>19</sup>
 
 #### Table: Web-First Locators Quick Reference
 
-| Locator | Use Case | Example |
-|----|----|----|
-| page.getByRole(role, options) | Finds elements by their ARIA role, name, and properties. The most preferred locator. | getByRole('button', { name: 'Sign in' }) |
-| page.getByText(text) | Finds elements containing specific text. Can be a string or a regular expression. | getByText('Welcome back!') |
-| page.getByLabel(text) | Finds form controls by their associated label text. | getByLabel('Password') |
-| page.getByPlaceholder(text) | Finds form inputs by their placeholder attribute. | getByPlaceholder('Search for products...') |
-| page.getByAltText(text) | Finds elements (usually images) by their alt text. | getByAltText('Company logo') |
-| page.getByTitle(text) | Finds elements by their title attribute (tooltip text). | getByTitle('Close dialog') |
-| page.getByTestId(id) | Finds elements by their data-testid attribute. A stable fallback for tests. | getByTestId('main-navigation-bar') |
+| Locator                       | Use Case                                                                             | Example                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------ |
+| page.getByRole(role, options) | Finds elements by their ARIA role, name, and properties. The most preferred locator. | getByRole('button', { name: 'Sign in' })   |
+| page.getByText(text)          | Finds elements containing specific text. Can be a string or a regular expression.    | getByText('Welcome back!')                 |
+| page.getByLabel(text)         | Finds form controls by their associated label text.                                  | getByLabel('Password')                     |
+| page.getByPlaceholder(text)   | Finds form inputs by their placeholder attribute.                                    | getByPlaceholder('Search for products...') |
+| page.getByAltText(text)       | Finds elements (usually images) by their alt text.                                   | getByAltText('Company logo')               |
+| page.getByTitle(text)         | Finds elements by their title attribute (tooltip text).                              | getByTitle('Close dialog')                 |
+| page.getByTestId(id)          | Finds elements by their data-testid attribute. A stable fallback for tests.          | getByTestId('main-navigation-bar')         |
 
 ### 2.4. Actions: Simulating User Interactions
 
@@ -437,7 +432,6 @@ to simulate user behavior. Playwright's API provides intuitive methods
 for all common interactions.<sup>11</sup>
 
 - **Form Inputs:**
-
   - locator.fill('text'): Clears the input and types the provided text.
     This is the most common way to fill forms.<sup>22</sup>
 
@@ -449,7 +443,6 @@ for all common interactions.<sup>11</sup>
 > await page.getByLabel('Search').press('Enter');
 
 - **Buttons & Links:**
-
   - locator.click(): Performs a standard left-click on an
     element.<sup>22</sup>
 
@@ -459,7 +452,6 @@ for all common interactions.<sup>11</sup>
 > await page.getByRole('link', { name: 'Get started' }).click();
 
 - **Checkboxes & Radio Buttons:**
-
   - locator.check(): Ensures a checkbox or radio button is checked. If
     it's already checked, it does nothing.<sup>22</sup>
 
@@ -469,7 +461,6 @@ for all common interactions.<sup>11</sup>
 > await page.getByLabel('I agree to the terms').check();
 
 - **Dropdowns/Selects:**
-
   - locator.selectOption({ value: '...' }) or locator.selectOption({
     label: '...' }): Selects one or more options from a \<select\>
     element by their value or visible text.<sup>11</sup>
@@ -482,7 +473,6 @@ for all common interactions.<sup>11</sup>
 > });
 
 - **Mouse Actions:**
-
   - locator.hover(): Moves the mouse cursor over the center of the
     element, often used to trigger tooltips or hover menus.<sup>11</sup>
 
@@ -491,7 +481,6 @@ for all common interactions.<sup>11</sup>
 > await page.getByRole('menuitem', { name: 'Logout' }).click();
 
 - **File Uploads:**
-
   - locator.setInputFiles('path/to/file.pdf'): Sets the input for a file
     chooser element. Can accept a single path or an array of paths for
     multiple files.<sup>22</sup>
@@ -501,7 +490,6 @@ for all common interactions.<sup>11</sup>
 > picture').setInputFiles('images/avatar.png');
 
 - **Keyboard:**
-
   - locator.press('KeyA') or locator.press('Control+C'): Simulates
     pressing a single key or a key combination.<sup>22</sup>
 
@@ -627,7 +615,6 @@ powerful hub for test execution and debugging.<sup>14</sup>
 
 - **Live Tools for Development:** The extension offers several
   live-feedback features:
-
   - **Show Browser:** Toggling this option in the Testing sidebar will
     run tests in a headed browser, making it easy to watch the
     automation unfold.<sup>14</sup>
@@ -697,8 +684,8 @@ of a failed test.13
 > TypeScript
 
 // playwright.config.ts  
-import { defineConfig } from '@playwright/test';  
-  
+import { defineConfig } from '@playwright/test';
+
 export default defineConfig({  
 use: {  
 // Capture trace when retrying a failed test.  
@@ -763,8 +750,8 @@ duplication and improving readability.
   test('should allow a user to log in with valid credentials', async ({
   page }) =\> {  
   //... test logic  
-  });  
-    
+  });
+
   test('should show an error message with invalid credentials', async ({
   page }) =\> {  
   //... test logic  
@@ -774,7 +761,6 @@ duplication and improving readability.
 - **Setup and Teardown with Hooks:** Hooks are functions that run before
   or after tests, allowing for the sharing of setup and cleanup
   logic.<sup>11</sup>
-
   - beforeEach: Runs before each test within a describe block. Ideal for
     repetitive setup tasks like navigating to a page or logging in.
 
@@ -796,12 +782,12 @@ await page.getByLabel('Email').fill('user@example.com');
 await page.getByLabel('Password').fill('password');  
 await page.getByRole('button', { name: 'Log In' }).click();  
 await page.getByRole('link', { name: 'My Profile' }).click();  
-});  
-  
+});
+
 test('should display the correct username', async ({ page }) =\> {  
 await expect(page.locator('.username')).toHaveText('testuser');  
-});  
-  
+});
+
 test('allows the user to update their profile picture', async ({ page })
 =\> {  
 //... test logic for updating picture  
@@ -836,29 +822,29 @@ Let's refactor our earlier login test to use the Page Object Model.
 2.  **Create the Page Object Class (pages/LoginPage.ts):**  
     TypeScript  
     import { type Page, type Locator, expect } from
-    '@playwright/test';  
-      
+    '@playwright/test';
+
     export class LoginPage {  
     // 1. Declare class properties for the page and locators.  
     readonly page: Page;  
     readonly emailInput: Locator;  
     readonly passwordInput: Locator;  
-    readonly loginButton: Locator;  
-      
+    readonly loginButton: Locator;
+
     // 2. The constructor initializes the page and locators.  
     constructor(page: Page) {  
     this.page = page;  
     this.emailInput = page.getByLabel('E-Mail Address');  
     this.passwordInput = page.getByLabel('Password');  
     this.loginButton = page.getByRole('button', { name: 'Login' });  
-    }  
-      
+    }
+
     // 3. Create methods that encapsulate user actions.  
     async navigate() {  
     await
     this.page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');  
-    }  
-      
+    }
+
     async login(email: string, password: string) {  
     await this.emailInput.fill(email);  
     await this.passwordInput.fill(password);  
@@ -870,19 +856,16 @@ Let's refactor our earlier login test to use the Page Object Model.
     TypeScript  
     import { test, expect } from '@playwright/test';  
     import { LoginPage } from '../pages/LoginPage'; // Import the page
-    object  
-      
+    object
     test('Successful login using Page Object Model', async ({ page })
     =\> {  
     // Create an instance of the LoginPage, passing in the page
     fixture.  
-    const loginPage = new LoginPage(page);  
-      
+    const loginPage = new LoginPage(page);
     // Use the methods from the page object to perform actions.  
     await loginPage.navigate();  
     await loginPage.login('your-demo-email@example.com',
-    'your-demo-password');  
-      
+    'your-demo-password');
     // The test file now only contains the high-level test logic.  
     await expect(page.getByRole('heading', { name: 'My Account'
     })).toBeVisible();  
@@ -911,10 +894,10 @@ storage), and then reuse that state for all subsequent tests.
     project root.  
     TypeScript  
     // global.setup.ts  
-    import { test as setup, expect } from '@playwright/test';  
-      
-    const authFile = 'playwright/.auth/user.json';  
-      
+    import { test as setup, expect } from '@playwright/test';
+
+    const authFile = 'playwright/.auth/user.json';
+
     setup('authenticate', async ({ page }) =\> {  
     // Perform authentication steps.  
     await
@@ -922,12 +905,12 @@ storage), and then reuse that state for all subsequent tests.
     await page.getByLabel('E-Mail
     Address').fill('your-demo-email@example.com');  
     await page.getByLabel('Password').fill('your-demo-password');  
-    await page.getByRole('button', { name: 'Login' }).click();  
-      
+    await page.getByRole('button', { name: 'Login' }).click();
+
     // Wait for the page to be in a signed-in state.  
     await expect(page.getByRole('heading', { name: 'My Account'
-    })).toBeVisible();  
-      
+    })).toBeVisible();
+
     // End of authentication steps.  
     await page.context().storageState({ path: authFile });  
     });
@@ -935,12 +918,10 @@ storage), and then reuse that state for all subsequent tests.
 2.  **Configure playwright.config.ts to Use the Setup:**  
     TypeScript  
     // playwright.config.ts  
-    import { defineConfig } from '@playwright/test';  
-      
+    import { defineConfig } from '@playwright/test';
     export default defineConfig({  
     // 1. Point to the global setup file.  
-    globalSetup: require.resolve('./global.setup.ts'),  
-      
+    globalSetup: require.resolve('./global.setup.ts'),
     projects:,  
     });
 
@@ -977,8 +958,8 @@ complex test scenarios.
   contentType: 'application/json',  
   body: JSON.stringify({ message: 'Internal Server Error' }),  
   });  
-  });  
-    
+  });
+
   await page.goto('/products');  
   await expect(page.getByText('Could not load
   products.')).toBeVisible();  
@@ -989,8 +970,8 @@ complex test scenarios.
   device descriptors.<sup>4</sup>  
   TypeScript  
   // playwright.config.ts  
-  import { defineConfig, devices } from '@playwright/test';  
-    
+  import { defineConfig, devices } from '@playwright/test';
+
   export default defineConfig({  
   projects: },  
   },  
@@ -1000,8 +981,8 @@ complex test scenarios.
   use: {...devices\['iPhone 13'\] },  
   },  
   \],  
-  });  
-    
+  });
+
   Running tests with --project="Mobile Safari" will execute them in a
   browser context configured with the iPhone 13's viewport, user agent,
   and touch event settings.
@@ -1017,8 +998,7 @@ complex test scenarios.
   // The first time this runs, it will save a baseline screenshot.  
   // Subsequent runs will compare against that baseline.  
   await expect(page).toHaveScreenshot('homepage.png');  
-  });  
-    
+  });
   If any pixel difference is detected, the test will fail, and
   Playwright will generate a diff image highlighting the changes.
   Snapshots can be updated with the --update-snapshots CLI flag.
@@ -1070,47 +1050,57 @@ file <sup>41</sup>:
 
 > YAML
 
-name: Playwright Tests  
-  
+name: Playwright Tests
+
 on:  
 push:  
 branches: \[ main, master \]  
 pull_request:  
-branches: \[ main, master \]  
-  
+branches: \[ main, master \]
+
 jobs:  
 test:  
 timeout-minutes: 60  
-runs-on: ubuntu-latest  
-  
+runs-on: ubuntu-latest
+
 steps:  
-\# 1. Check out the repository code  
-- uses: actions/checkout@v4  
-  
-\# 2. Set up the specified Node.js version  
+\# 1. Check out the repository code
+
+- uses: actions/checkout@v4
+
+\# 2. Set up the specified Node.js version
+
 - uses: actions/setup-node@v4  
-with:  
-node-version: lts/\*  
-  
-\# 3. Install project dependencies cleanly  
+  with:  
+  node-version: lts/\*  
+
+
+\# 3. Install project dependencies cleanly
+
 - name: Install dependencies  
-run: npm ci  
-  
-\# 4. Install Playwright browsers and OS dependencies  
+  run: npm ci  
+
+
+\# 4. Install Playwright browsers and OS dependencies
+
 - name: Install Playwright Browsers  
-run: npx playwright install --with-deps  
-  
-\# 5. Run the Playwright test suite  
+  run: npx playwright install --with-deps  
+
+
+\# 5. Run the Playwright test suite
+
 - name: Run Playwright tests  
-run: npx playwright test  
-  
-\# 6. Upload the test report as an artifact  
+  run: npx playwright test  
+
+
+\# 6. Upload the test report as an artifact
+
 - uses: actions/upload-artifact@v4  
-if: always() \# Run this step even if tests fail  
-with:  
-name: playwright-report  
-path: playwright-report/  
-retention-days: 30
+  if: always() \# Run this step even if tests fail  
+  with:  
+  name: playwright-report  
+  path: playwright-report/  
+  retention-days: 30
 
 **Workflow Explained:**
 
@@ -1122,7 +1112,6 @@ retention-days: 30
     will run on a virtual machine with the latest version of Ubuntu.
 
 3.  **Steps:**
-
     - actions/checkout@v4: A standard GitHub Action to clone the
       repository's code onto the runner.
 
@@ -1159,42 +1148,42 @@ tests.
 > Groovy
 
 pipeline {  
-agent any // Or specify a specific agent, e.g., one with Docker  
-  
+agent any // Or specify a specific agent, e.g., one with Docker
+
 tools {  
 // Use the NodeJS tool configured in Jenkins Global Tool Configuration  
 nodejs 'NodeJS-LTS'  
-}  
-  
+}
+
 stages {  
 stage('Checkout') {  
 steps {  
 // Check out code from the configured SCM (e.g., Git)  
 checkout scm  
 }  
-}  
-  
+}
+
 stage('Install Dependencies') {  
 steps {  
 // Use sh to execute shell commands  
 sh 'npm ci'  
 sh 'npx playwright install --with-deps'  
 }  
-}  
-  
+}
+
 stage('Run Playwright Tests') {  
 steps {  
 sh 'npx playwright test'  
 }  
 }  
-}  
-  
+}
+
 post {  
 always {  
 // After the run, archive the HTML report  
 archiveArtifacts artifacts: 'playwright-report/\*\*', allowEmptyArchive:
-true  
-  
+true
+
 // Use the HTML Publisher plugin to display the report in the Jenkins
 UI  
 publishHTML(target:)  
@@ -1222,23 +1211,24 @@ A sample .circleci/config.yml might look like this <sup>47</sup>:
 
 > YAML
 
-version: 2.1  
-  
+version: 2.1
+
 jobs:  
 test:  
 docker:  
-\# Use the official Microsoft Playwright Docker image  
+\# Use the official Microsoft Playwright Docker image
+
 - image: mcr.microsoft.com/playwright:v1.44.0-jammy  
-steps:  
-- checkout  
+  steps:
+- checkout
 - run:  
-name: Install Dependencies  
-command: npm ci  
+  name: Install Dependencies  
+  command: npm ci
 - run:  
-name: Run Playwright Tests  
-command: npx playwright test  
+  name: Run Playwright Tests  
+  command: npx playwright test
 - store_artifacts:  
-path: playwright-report
+  path: playwright-report
 
 This configuration is concise because the Docker image already contains
 the browsers and all necessary system dependencies, eliminating the npx
@@ -1296,8 +1286,8 @@ is a key feature.
   export default defineConfig({  
   // Run up to 4 tests in parallel on CI, but only 1 locally.  
   workers: process.env.CI? 4 : 1,  
-  });  
-    
+  });
+
   Playwright's test isolation model, where each test gets its own
   browser context, makes parallelization safe and highly
   effective.<sup>7</sup>

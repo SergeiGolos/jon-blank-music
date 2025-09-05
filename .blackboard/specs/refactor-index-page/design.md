@@ -1,8 +1,9 @@
 # Refactor Index Page into Composable Components
 
 ## 1. Context and Goals
+
 - **Business Context**: The current index.tsx file is a monolithic component containing all sections of the homepage, making it difficult to maintain, test, and reuse components. Refactoring into smaller, composable components will improve code organization, readability, and scalability for Jon Blanck's music website.
-- **Success Criteria**: 
+- **Success Criteria**:
   - The homepage renders identically after refactoring.
   - Components are reusable across different pages.
   - Data is loaded from external JSON files for easy content management.
@@ -11,6 +12,7 @@
 - **Out-of-scope**: Changing the visual design or adding new features; backend integration for dynamic data; SEO optimizations beyond current meta tags.
 
 ## 2. Requirements
+
 - **Functional Requirements**:
   - Extract the following sections into individual Qwik components: HeroSection, AchievementsSection, ServicesGrid, MusicSection, LessonsSection, ContactSection.
   - Create JSON files: videos.json, chart.json, lessons.json in the root directory (e.g., src/assets/data/).
@@ -26,6 +28,7 @@
   - Compliance: Maintain accessibility standards (ARIA labels, keyboard navigation).
 
 ## 3. Architecture Overview
+
 - **High-level Diagram**:
   ```
   Index Page (index.tsx)
@@ -50,6 +53,7 @@
 - **Boundaries and Dependencies**: Components depend on shared utilities for data loading; no external APIs, only static JSON.
 
 ## 4. Data and API Design
+
 - **Data Models**:
   - videos.json: Array of { title: string, description: string, videoLink: string, image?: string, group: "Video Performances" | "Ensemble Performances" }
   - chart.json: Array of { title: string, year: number, chartNumber: number, links: { platform: string, url: string }[] }
@@ -58,6 +62,7 @@
 - **API Endpoints/Contracts**: N/A (static data).
 
 ## 5. Detailed Design
+
 - **Sequence Diagrams/Flows**:
   1. Index page loads → Import and render all section components.
   2. Each section component → Load data from JSON using useResource → Render with data.
@@ -67,22 +72,27 @@
   - Large data sets: Implement pagination or virtualization if needed (not anticipated).
 
 ## 6. Testing Strategy
+
 - **Test Types**: Unit tests for individual components; integration tests for data loading; visual regression tests for UI consistency.
 - **Coverage Approach**: Aim for 80% coverage on component logic and data handling.
 - **Test Data and Environments**: Use mock JSON data for tests; test in development and production builds.
 
 ## 7. Risks and Tradeoffs
+
 - **Alternatives Considered**: Keeping monolithic structure vs. full micro-frontend architecture (chose component-based for simplicity).
 - **Known Risks**: Potential increase in bundle size if not lazy-loaded; mitigated by Qwik's optimization.
 - **Mitigations**: Use dynamic imports for non-critical components.
 
 ## 8. Rollout and Observability
+
 - **Migration/Backfill Plan**: Replace sections in index.tsx incrementally; test each component before merging.
 - **Metrics, Logging, Alerts**: Monitor page load times; log data loading errors.
 
 ## 9. Work Plan
+
 - See tasks.md for detailed milestones and task decomposition.
 
 ## 10. Open Questions
+
 - Confirm exact JSON schema with content owner (due: end of week).
 - Decide on lazy-loading strategy for performance (due: design review).

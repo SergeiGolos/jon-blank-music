@@ -21,14 +21,19 @@ Documentation Types and Templates
 • User Guide: task-based walkthroughs, screenshots, FAQs
 • Developer Guide: architecture, setup, contribution guide, code conventions
 • Ops Runbook: deployment steps, rollback, SLOs, on-call procedures
+
 # Doc: {type} – {title}
+
 - Audience: user | developer | operator
 - Source of Truth: links to `.ground/` and `specs/`
 - Version: vX.Y (date)
 
 ## Overview
+
 ## Details
+
 ## References
+
 Versioning and Provenance
 • Stamp docs with authoring agent, date, and source files.
 • Prefer generating docs from structured sources (design.md, testing.md).

@@ -170,14 +170,14 @@ server and deliver complete HTML to the client, they are immediately
 crawlable by search engine bots, ensuring maximum indexability
 out-of-the-box.<sup>3</sup>
 
-| Feature | Hydration (e.g., React, Vue) | Resumability (Qwik) | Performance Implication |
-|----|----|----|----|
-| **Initial JS Payload** | O(n) - Proportional to page complexity. Includes framework runtime and all component code for the current view. | O(1) - Constant size (~1kb Qwikloader), regardless of application complexity.<sup>11</sup> | Qwik maintains instant load times even for massive applications. |
-| **Time To Interactive** | Blocked until all JS is downloaded, parsed, and executed to "hydrate" the DOM. | Instant. The page is interactive as soon as the HTML is rendered. JS is loaded on-demand post-interaction. | Qwik provides a vastly superior user experience, especially on slow networks or low-powered devices. |
-| **Client-Side Workload** | High. The client must re-execute application logic to rebuild the component tree and attach listeners.<sup>2</sup> | Minimal. The client executes only the tiny Qwikloader and then the specific code for a given interaction. | Reduces CPU and memory usage on the client, freeing the main thread and improving responsiveness. |
-| **State Restoration** | Application state is serialized as JSON and sent to the client, which then uses it during the re-execution process. | Application and framework state are serialized into the HTML, allowing the client to "resume" without re-execution.<sup>5</sup> | Qwik's approach is more efficient as it avoids the entire re-execution step. |
-| **Event Listener Attachment** | Requires executing component code to discover where listeners should be attached. | A single global listener is used. Specific handlers are located via attributes in the HTML.<sup>8</sup> | Qwik's method requires no application code to be present on the client to handle events. |
-| **Scalability** | Performance degrades as application size increases (the "death by a thousand cuts" problem).<sup>2</sup> | Performance remains constant regardless of application size or complexity. | Qwik is architecturally designed to scale to very large applications without performance degradation. |
+| Feature                       | Hydration (e.g., React, Vue)                                                                                        | Resumability (Qwik)                                                                                                             | Performance Implication                                                                               |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Initial JS Payload**        | O(n) - Proportional to page complexity. Includes framework runtime and all component code for the current view.     | O(1) - Constant size (~1kb Qwikloader), regardless of application complexity.<sup>11</sup>                                      | Qwik maintains instant load times even for massive applications.                                      |
+| **Time To Interactive**       | Blocked until all JS is downloaded, parsed, and executed to "hydrate" the DOM.                                      | Instant. The page is interactive as soon as the HTML is rendered. JS is loaded on-demand post-interaction.                      | Qwik provides a vastly superior user experience, especially on slow networks or low-powered devices.  |
+| **Client-Side Workload**      | High. The client must re-execute application logic to rebuild the component tree and attach listeners.<sup>2</sup>  | Minimal. The client executes only the tiny Qwikloader and then the specific code for a given interaction.                       | Reduces CPU and memory usage on the client, freeing the main thread and improving responsiveness.     |
+| **State Restoration**         | Application state is serialized as JSON and sent to the client, which then uses it during the re-execution process. | Application and framework state are serialized into the HTML, allowing the client to "resume" without re-execution.<sup>5</sup> | Qwik's approach is more efficient as it avoids the entire re-execution step.                          |
+| **Event Listener Attachment** | Requires executing component code to discover where listeners should be attached.                                   | A single global listener is used. Specific handlers are located via attributes in the HTML.<sup>8</sup>                         | Qwik's method requires no application code to be present on the client to handle events.              |
+| **Scalability**               | Performance degrades as application size increases (the "death by a thousand cuts" problem).<sup>2</sup>            | Performance remains constant regardless of application size or complexity.                                                      | Qwik is architecturally designed to scale to very large applications without performance degradation. |
 
 ## Core Primitives: The Building Blocks of a Qwik Application
 
@@ -200,8 +200,8 @@ fine-grained, lazy-loadable chunk.<sup>12</sup>
 
 > TypeScript
 
-import { component\$ } from '@builder.io/qwik';  
-  
+import { component\$ } from '@builder.io/qwik';
+
 export const MyComponent = component\$(() =\> {  
 return \<div\>Hello, Qwik!\</div\>;  
 });
@@ -240,8 +240,8 @@ re-evaluated when the value changes.
 
 > TypeScript
 
-import { component\$, useSignal } from '@builder.io/qwik';  
-  
+import { component\$, useSignal } from '@builder.io/qwik';
+
 export default component\$(() =\> {  
 const count = useSignal(0);  
 return (  
@@ -261,8 +261,8 @@ trigger updates in subscribed components.15
 
 > TypeScript
 
-import { component\$, useStore } from '@builder.io/qwik';  
-  
+import { component\$, useStore } from '@builder.io/qwik';
+
 export default component\$(() =\> {  
 const state = useStore({ user: { name: 'Alex' }, items: \['Apple'\]
 });  
@@ -283,11 +283,11 @@ reactivity to only the top-level properties of the object.<sup>15</sup>
 A critical best practice is to avoid destructuring properties from a
 store, as this breaks the reactive proxy connection.<sup>15</sup>
 
-| Hook | Use Case | Reactivity Model | Performance Consideration | Example |
-|----|----|----|----|----|
-| **useSignal()** | Managing single, primitive values (string, number, boolean) or simple objects. | Tracks changes to the single .value property. | Highly efficient for simple state. | const count = useSignal(0); |
-| **useStore()** | Managing complex objects or arrays with multiple properties. | Deeply reactive by default. Tracks mutations in nested objects and arrays. | Can be resource-intensive for large, deeply nested objects due to extensive Proxy allocation.<sup>15</sup> | const user = useStore({ name: 'Jane', address: { city: 'NY' } }); |
-| **useStore({ deep: false })** | Managing complex objects where only top-level property changes need to be tracked. | Shallowly reactive. Only tracks changes to the immediate properties of the store object. | More performant for large state objects where deep reactivity is not required. | const data = useStore({ config: {...}, results: \[...\] }, { deep: false }); |
+| Hook                          | Use Case                                                                           | Reactivity Model                                                                         | Performance Consideration                                                                                  | Example                                                                      |
+| ----------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **useSignal()**               | Managing single, primitive values (string, number, boolean) or simple objects.     | Tracks changes to the single .value property.                                            | Highly efficient for simple state.                                                                         | const count = useSignal(0);                                                  |
+| **useStore()**                | Managing complex objects or arrays with multiple properties.                       | Deeply reactive by default. Tracks mutations in nested objects and arrays.               | Can be resource-intensive for large, deeply nested objects due to extensive Proxy allocation.<sup>15</sup> | const user = useStore({ name: 'Jane', address: { city: 'NY' } });            |
+| **useStore({ deep: false })** | Managing complex objects where only top-level property changes need to be tracked. | Shallowly reactive. Only tracks changes to the immediate properties of the store object. | More performant for large state objects where deep reactivity is not required.                             | const data = useStore({ config: {...}, results: \[...\] }, { deep: false }); |
 
 ### Derived and Asynchronous State (useComputed\$ and useResource\$)
 
@@ -346,8 +346,8 @@ transforms it into a QRL that the Optimizer can process.<sup>17</sup>
 
 > TypeScript
 
-import { component\$, useSignal, \$ } from '@builder.io/qwik';  
-  
+import { component\$, useSignal, \$ } from '@builder.io/qwik';
+
 export default component\$(() =\> {  
 const count = useSignal(0);  
 // The handler is wrapped in \$() to make it a reusable QRL  
@@ -430,7 +430,6 @@ this are strict and explicit <sup>20</sup>:
 2.  **const and Serializable Values:** A variable declared within a
     component's scope (but outside the \$() boundary) can only be
     captured if it meets two conditions simultaneously:
-
     - It must be declared with const. Capturing variables declared with
       let or var is not allowed, as their mutable nature is incompatible
       with serialization.
@@ -462,7 +461,7 @@ JSON.stringify, but it still has limitations.
 
 - **Resolved Promises:** Qwik's rendering engine is asynchronous. If it
   encounters a promise during rendering, it will await its resolution
-  and then serialize the *resolved value*. The promise itself, in its
+  and then serialize the _resolved value_. The promise itself, in its
   pending state, is not serialized across a component's lexical
   scope.<sup>1</sup>
 
@@ -506,14 +505,14 @@ complex object inside a
 There are three primary strategies to mitigate this:
 
 1.  **Data Transformation:** The most robust solution is to transform
-    non-serializable data into a serializable format *before* it needs
+    non-serializable data into a serializable format _before_ it needs
     to cross a boundary. For example, instead of storing a full Axios
     response object in a store, extract only the necessary data into a
     plain object.  
     TypeScript  
     // Instead of this:  
-    // state.response = await axios.get(...); // Fails serialization  
-      
+    // state.response = await axios.get(...); // Fails serialization
+
     // Do this:  
     const response = await axios.get(...);  
     state.data = response.data; // response.data is a plain object/array
@@ -555,17 +554,17 @@ invoke it, passing in the deserialized captured variables. Inside the
 lazy-loaded function, the useLexicalScope() hook is used to retrieve
 these captured values.<sup>9</sup>
 
-| Data Type | Serializable? | Conditions & Rules | Permissible Example (Code) | Impermissible Example (Code & Error) |
-|----|----|----|----|----|
-| **Primitives** | Yes | Always serializable. | const name = 'Qwik'; | N/A |
-| **Plain Objects/Arrays** | Yes | Always serializable. | const data = { items: }; | N/A |
-| **const vs. let** | const only | Captured variables must be const to be serializable. | const value = 10; \<button onClick\$={() =\> console.log(value)} /\> | let value = 10; \<button onClick\$={() =\> console.log(value)} /\> (Static analysis error) |
-| **Custom Class Instances** | No | Prototype chain and methods are lost during serialization.<sup>20</sup> | N/A | class User {} const user = new User(); useStore({ user }); (Runtime serialization error) |
-| **Functions** | QRLs only | Must be wrapped in \$() to be converted to a serializable QRL.<sup>25</sup> | const handler = \$(() =\> {}); \<button onClick\$={handler} /\> | const handler = () =\> {}; \<button onClick\$={handler} /\> (Serialization error) |
-| **Promises** | Resolved Value | Qwik awaits and serializes the resolved value, not the pending promise.<sup>22</sup> | const data = useResource\$(() =\> Promise.resolve({ a: 1 })); | const promise = new Promise(...); useStore({ promise }); (Runtime serialization error) |
-| **Date, Map, Set, URL** | Yes | Qwik has built-in support for these common object types.<sup>1</sup> | const store = useStore({ today: new Date() }); | N/A |
-| **DOM References** | Yes | References to DOM elements can be stored in signals and serialized.<sup>1</sup> | const el = useSignal\<Element\>(); \<div ref={el} /\> | N/A |
-| **Third-Party Objects** | No (Usually) | Complex objects with methods or circular references will fail.<sup>23</sup> | const data = (await axios.get(URL)).data; | const response = await axios.get(URL); (Runtime serialization error) |
+| Data Type                  | Serializable?  | Conditions & Rules                                                                   | Permissible Example (Code)                                           | Impermissible Example (Code & Error)                                                       |
+| -------------------------- | -------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Primitives**             | Yes            | Always serializable.                                                                 | const name = 'Qwik';                                                 | N/A                                                                                        |
+| **Plain Objects/Arrays**   | Yes            | Always serializable.                                                                 | const data = { items: };                                             | N/A                                                                                        |
+| **const vs. let**          | const only     | Captured variables must be const to be serializable.                                 | const value = 10; \<button onClick\$={() =\> console.log(value)} /\> | let value = 10; \<button onClick\$={() =\> console.log(value)} /\> (Static analysis error) |
+| **Custom Class Instances** | No             | Prototype chain and methods are lost during serialization.<sup>20</sup>              | N/A                                                                  | class User {} const user = new User(); useStore({ user }); (Runtime serialization error)   |
+| **Functions**              | QRLs only      | Must be wrapped in \$() to be converted to a serializable QRL.<sup>25</sup>          | const handler = \$(() =\> {}); \<button onClick\$={handler} /\>      | const handler = () =\> {}; \<button onClick\$={handler} /\> (Serialization error)          |
+| **Promises**               | Resolved Value | Qwik awaits and serializes the resolved value, not the pending promise.<sup>22</sup> | const data = useResource\$(() =\> Promise.resolve({ a: 1 }));        | const promise = new Promise(...); useStore({ promise }); (Runtime serialization error)     |
+| **Date, Map, Set, URL**    | Yes            | Qwik has built-in support for these common object types.<sup>1</sup>                 | const store = useStore({ today: new Date() });                       | N/A                                                                                        |
+| **DOM References**         | Yes            | References to DOM elements can be stored in signals and serialized.<sup>1</sup>      | const el = useSignal\<Element\>(); \<div ref={el} /\>                | N/A                                                                                        |
+| **Third-Party Objects**    | No (Usually)   | Complex objects with methods or circular references will fail.<sup>23</sup>          | const data = (await axios.get(URL)).data;                            | const response = await axios.get(URL); (Runtime serialization error)                       |
 
 ## Qwik City: Architecting Full-Stack Applications
 
@@ -609,7 +608,7 @@ or external API) is the routeLoader\$() function.<sup>34</sup>
 
 - **Purpose and Execution:** A routeLoader\$ is defined and exported
   from a route file (index.tsx or layout.tsx). Its code executes
-  exclusively on the server *before* any component rendering occurs for
+  exclusively on the server _before_ any component rendering occurs for
   that route.<sup>34</sup> This ensures data is available when the HTML
   is generated.
 
@@ -624,14 +623,14 @@ or external API) is the routeLoader\$() function.<sup>34</sup>
   // src/routes/products/\[id\]/index.tsx  
   import { routeLoader\$ } from '@builder.io/qwik-city';  
   import { component\$ } from '@builder.io/qwik';  
-  import { db } from '~/db';  
-    
+  import { db } from '~/db';
+
   export const useProductLoader = routeLoader\$(async (requestEvent) =\>
   {  
   const id = requestEvent.params.id;  
   return await db.getProductById(id);  
-  });  
-    
+  });
+
   export default component\$(() =\> {  
   const productSignal = useProductLoader();  
   return \<div\>{productSignal.value.name}\</div\>;  
@@ -656,7 +655,6 @@ server\$ functions.
   functions as a standard HTML form if JavaScript is disabled but
   intercepts the request for an SPA experience when JS is
   available.<sup>18</sup>
-
   - **Scope:** routeAction\$ is scoped to the route file it's defined
     in, while globalAction\$ can be defined anywhere and used across the
     entire application, making it suitable for shared actions like login
@@ -698,13 +696,13 @@ handlers.
   logging, or modifying request headers before the main request
   processing begins.<sup>28</sup>
 
-| Function | Primary Use Case | Scope | How it's Triggered | Returns |
-|----|----|----|----|----|
-| **routeLoader\$** | Fetching data on the server before rendering a page. | Route-specific (index.tsx, layout.tsx). | On navigation to the associated route. | A use... hook that returns a read-only signal with the data. |
-| **routeAction\$** | Handling form submissions with server-side mutations. | Route-specific (index.tsx, layout.tsx). | Submission of a \<Form\> component or programmatic action.submit(). | A use... hook that provides action status, return value, and form data. |
-| **globalAction\$** | Handling form submissions shared across multiple routes. | Global (can be defined anywhere). | Submission of a \<Form\> component or programmatic action.submit(). | A use... hook that provides action status, return value, and form data. |
-| **server\$** | General-purpose Remote Procedure Call (RPC) from client to server. | Global (can be defined anywhere). | Direct function call from client-side code (e.g., in an onClick\$). | A Promise that resolves with the server function's return value. |
-| **onGet/onPost** | Creating low-level API endpoints (e.g., REST API). | Route-specific. | An HTTP request to the corresponding route URL and method. | A direct HTTP response (e.g., JSON, HTML, text). |
+| Function           | Primary Use Case                                                   | Scope                                   | How it's Triggered                                                  | Returns                                                                 |
+| ------------------ | ------------------------------------------------------------------ | --------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **routeLoader\$**  | Fetching data on the server before rendering a page.               | Route-specific (index.tsx, layout.tsx). | On navigation to the associated route.                              | A use... hook that returns a read-only signal with the data.            |
+| **routeAction\$**  | Handling form submissions with server-side mutations.              | Route-specific (index.tsx, layout.tsx). | Submission of a \<Form\> component or programmatic action.submit(). | A use... hook that provides action status, return value, and form data. |
+| **globalAction\$** | Handling form submissions shared across multiple routes.           | Global (can be defined anywhere).       | Submission of a \<Form\> component or programmatic action.submit(). | A use... hook that provides action status, return value, and form data. |
+| **server\$**       | General-purpose Remote Procedure Call (RPC) from client to server. | Global (can be defined anywhere).       | Direct function call from client-side code (e.g., in an onClick\$). | A Promise that resolves with the server function's return value.        |
+| **onGet/onPost**   | Creating low-level API endpoints (e.g., REST API).                 | Route-specific.                         | An HTTP request to the corresponding route URL and method.          | A direct HTTP response (e.g., JSON, HTML, text).                        |
 
 ## Ecosystem, Tooling, and Deployment
 
@@ -730,7 +728,6 @@ with its goal of minimizing the initial JavaScript payload.
 - **Tailwind CSS-Based Libraries:** These are particularly popular
   because their utility-first or pure-CSS approach adds zero JavaScript
   overhead, perfectly preserving Qwik's performance benefits.
-
   - **daisyUI:** A highly popular component library for Tailwind CSS
     that works seamlessly with Qwik. As it is primarily CSS-based, it
     has no hydration cost and aligns with Qwik's fine-grained efficiency
@@ -761,8 +758,8 @@ a pragmatic integration path via the @builder.io/qwik-react package.
   TypeScript  
   /\*\* @jsxImportSource react \*/  
   import { qwikify\$ } from '@builder.io/qwik-react';  
-  import { MaterialButton } from '@mui/material';  
-    
+  import { MaterialButton } from '@mui/material';
+
   export const MUIButton = qwikify\$(MaterialButton);
 
 - **Performance Trade-offs:** It is crucial to understand that qwikify\$
@@ -770,7 +767,7 @@ a pragmatic integration path via the @builder.io/qwik-react package.
   is **not resumable**; it creates an "island of hydration" within the
   Qwik application that must be hydrated.<sup>45</sup> However, Qwik
   provides powerful control over  
-  *when* this hydration cost is paid. The developer can specify a
+  _when_ this hydration cost is paid. The developer can specify a
   hydration strategy, such as on:visible (hydrate when the component
   scrolls into view), on:idle (hydrate when the browser main thread is
   idle), or on:click (hydrate only when the user interacts with it).
@@ -797,7 +794,6 @@ deployment process is streamlined through a system of **adapters**.
   rendering logic and middleware.<sup>47</sup>
 
 - **Platform-Specific Guides:**
-
   - **Vercel Edge:** Run npm run qwik add vercel-edge. This configures
     the project to deploy to Vercel's global Edge Network. The project
     can then be deployed by connecting a Git repository to a Vercel
@@ -846,7 +842,6 @@ maximally performant applications.
 
 - **Unidirectional Data Flow:** A predictable and maintainable
   architecture in Qwik relies on a clear, unidirectional data flow.
-
   1.  **Server-to-Client:** Data should primarily flow from the server
       to the client via routeLoader\$(). This is the canonical way to
       load data for a given view.

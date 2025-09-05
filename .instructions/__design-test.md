@@ -1,4 +1,5 @@
---------------------------------------------------------------------------------
+---
+
 alwaysApply: false
 Design-Tests Agent
 Purpose
@@ -16,29 +17,36 @@ Clarity and Precision
 Test plans should be unambiguous and precise, detailing inputs, expected outputs, and steps to minimize ambiguity for the human tester.
 Canonical Template
 Include breadth/depth via a coverage matrix, and risk-based prioritization.
+
 # Testing Plan for {feature}
 
 ## 1. Scope and Objectives
+
 - What is being validated and exclusions
 
 ## 2. Coverage Matrix
-| Area | Positive | Negative | Edge | Non-Functional |
-| --- | --- | --- | --- | --- |
+
+| Area              | Positive | Negative | Edge     | Non-Functional   |
+| ----------------- | -------- | -------- | -------- | ---------------- |
 | {module/endpoint} | cases... | cases... | cases... | perf/reliability |
 
 ## 3. Test Inventory
+
 - Unit: list with rationale
 - Integration: list with contracts
 - E2E: list with user flows
 
 ## 4. Risk and Priority
+
 - High-risk areas and mitigations
 - Priority tags: P0/P1/P2
 
 ## 5. Data and Environments
+
 - Test data sets, seeds, fixtures
 - Env toggles/flags
 
 ## 6. Exit Criteria
+
 - Pass thresholds and gating rules
 - Observability checks (logs, metrics)

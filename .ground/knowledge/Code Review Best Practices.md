@@ -247,13 +247,13 @@ frequent, disruptive context switches.
 The following table provides a comparative analysis to guide this
 decision-making process.
 
-| Methodology | Speed / Cycle Time | Thoroughness | Collaboration Level | Resource Intensity | Best Use Cases |
-|----|----|----|----|----|----|
-| **Formal Inspection** | Very Slow | Very High | Low (Formal, meeting-based) | Very High | Safety-critical systems, regulatory compliance.<sup>9</sup> |
-| **Pair Programming** | Very Fast (Instant feedback) | High | Very High (Synchronous) | High (2 devs, 1 task) | Complex problems, knowledge transfer, onboarding.<sup>1</sup> |
-| **Over-the-Shoulder** | Fast | Medium | High (Synchronous) | Medium | Small changes, quick feedback in co-located teams.<sup>1</sup> |
-| **Tool-Assisted PR** | Medium (Asynchronous) | Medium-High | Medium (Asynchronous) | Low | Default for most Agile/distributed teams.<sup>16</sup> |
-| **Email Pass-Around** | Slow | Low | Low (Asynchronous) | Low | Legacy systems, teams without modern tooling.<sup>19</sup> |
+| Methodology           | Speed / Cycle Time           | Thoroughness | Collaboration Level         | Resource Intensity    | Best Use Cases                                                 |
+| --------------------- | ---------------------------- | ------------ | --------------------------- | --------------------- | -------------------------------------------------------------- |
+| **Formal Inspection** | Very Slow                    | Very High    | Low (Formal, meeting-based) | Very High             | Safety-critical systems, regulatory compliance.<sup>9</sup>    |
+| **Pair Programming**  | Very Fast (Instant feedback) | High         | Very High (Synchronous)     | High (2 devs, 1 task) | Complex problems, knowledge transfer, onboarding.<sup>1</sup>  |
+| **Over-the-Shoulder** | Fast                         | Medium       | High (Synchronous)          | Medium                | Small changes, quick feedback in co-located teams.<sup>1</sup> |
+| **Tool-Assisted PR**  | Medium (Asynchronous)        | Medium-High  | Medium (Asynchronous)       | Low                   | Default for most Agile/distributed teams.<sup>16</sup>         |
+| **Email Pass-Around** | Slow                         | Low          | Low (Asynchronous)          | Low                   | Legacy systems, teams without modern tooling.<sup>19</sup>     |
 
 ## Roles, Responsibilities, and Etiquette
 
@@ -318,7 +318,6 @@ a structured and thoughtful approach to providing feedback.
   feedback, addressing high-level issues before focusing on minor
   details. This hierarchy ensures that the most important feedback is
   delivered and acted upon:
-
   1.  **Design and Architecture:** Does the change align with the
       existing system architecture? Is it well-designed, scalable, and
       maintainable?.<sup>10</sup>
@@ -366,7 +365,7 @@ undermines the core goals of improving code and sharing knowledge.
   the command, "Rename this variable.".<sup>3</sup>
 
 - **Explain Your Reasoning:** Do not simply state that something is
-  incorrect; explain *why* it is a problem and, whenever possible,
+  incorrect; explain _why_ it is a problem and, whenever possible,
   suggest a better alternative.<sup>23</sup> Grounding feedback in
   objective standards by linking to style guides or external
   documentation helps depersonalize the critique.<sup>11</sup>
@@ -605,7 +604,7 @@ but critical flaws being introduced into the codebase.<sup>41</sup>
 Recent research has uncovered a "productivity paradox" that challenges
 the narrative of AI as a universal accelerator. A study conducted in
 2024 and 2025 found that experienced open-source developers actually
-took 19% *longer* to complete tasks when using AI tools, despite
+took 19% _longer_ to complete tasks when using AI tools, despite
 perceiving themselves as being faster.<sup>47</sup> Another study noted
 that while developers found an AI tool useful for bug detection and
 promoting best practices, its adoption led to an increase in the average
@@ -647,7 +646,6 @@ managed by the team.
   impossible to review thoroughly, leading to reviewer fatigue and a
   high likelihood of superficial, "rubber-stamp" approvals where
   critical issues are missed.
-
   - **Solution:** The most effective solution is systemic. The
     organization must establish and enforce strict guidelines on the
     size and scope of pull requests, with a common recommendation being
@@ -662,7 +660,6 @@ managed by the team.
   author's progress.<sup>35</sup> This anti-pattern is often a symptom
   of a culture that does not formally recognize or allocate time for
   review work.
-
   - **Solution:** Establish clear service-level objectives (SLOs) for
     review turnaround times, such as a first response within 24 business
     hours.<sup>3</sup> Make code review a recognized and prioritized
@@ -673,7 +670,6 @@ managed by the team.
 - **The Rushed Review:** This involves conducting superficial reviews
   under tight deadlines, where reviewers glance over the code without
   deep analysis, often missing significant issues.<sup>22</sup>
-
   - **Solution:** Foster a culture that values thoroughness over raw
     speed. Leaders must allocate dedicated time for code reviews within
     project plans and sprints.<sup>24</sup> Tracking metrics can help
@@ -689,7 +685,6 @@ reviewer role.
   style, formatting, or syntactical issues while ignoring deeper
   architectural or logical problems.<sup>22</sup> This wastes time and
   can be demoralizing for the author.
-
   - **Solution:** This anti-pattern is best solved with technology.
     Mandate the use of automated linters and code formatters within the
     CI pipeline to handle all objective style checks. This removes the
@@ -699,7 +694,6 @@ reviewer role.
 - **The "Vague Critic":** This reviewer leaves unclear, non-actionable
   feedback such as "This is confusing" or "Please fix this," which
   provides no guidance to the author.<sup>22</sup>
-
   - **Solution:** Train reviewers on the principles of constructive
     feedback. They must learn to be specific, explain the reasoning
     behind their comments, and suggest concrete alternatives whenever
@@ -709,7 +703,6 @@ reviewer role.
   one small piece at a time over multiple cycles, needlessly prolonging
   the review, when all points could have been raised in a single,
   comprehensive pass.<sup>50</sup>
-
   - **Solution:** Encourage reviewers to perform a complete pass of the
     code and provide all significant feedback at once. Differentiating
     between blocking issues and non-blocking "nits" can help streamline
@@ -719,7 +712,6 @@ reviewer role.
   critique of the author (e.g., "You made this too complicated") rather
   than an objective assessment of the code.<sup>51</sup> This behavior
   erodes psychological safety and triggers defensiveness.
-
   - **Solution:** This requires cultural enforcement of the
     communication etiquette outlined previously. Feedback must always
     focus on the code, not the coder.<sup>51</sup>
@@ -733,7 +725,6 @@ author's response to feedback.
   silently ignores feedback without engaging in a constructive
   discussion. This behavior undermines the entire purpose of the
   review.<sup>24</sup>
-
   - **Solution:** The team culture must establish that feedback is a
     gift and that authors are expected to respond to every comment, even
     if it is to respectfully disagree and explain their reasoning. The
@@ -742,7 +733,6 @@ author's response to feedback.
 - **Spaghetti Code:** The submitted code has a tangled, convoluted
   control flow that is difficult to understand and maintain, often due
   to excessive nesting or a lack of clear structure.<sup>53</sup>
-
   - **Solution:** This is a fundamental design issue. The review process
     should act as a quality gate that blocks such code, with the
     reviewer recommending specific refactoring into smaller, more
@@ -752,7 +742,6 @@ author's response to feedback.
   or integers to represent complex domain concepts (e.g., using a string
   for a currency amount), which leads to a loss of type safety and
   semantic clarity.<sup>54</sup>
-
   - **Solution:** Reviewers should encourage the creation of simple
     value objects, classes, or structs to represent core domain
     concepts, making the code more expressive, robust, and maintainable.
