@@ -4,3 +4,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Prevent layout shift by ensuring images maintain aspect ratio during loading */
+img {
+  max-width: 100%;
+  height: auto;
+}
