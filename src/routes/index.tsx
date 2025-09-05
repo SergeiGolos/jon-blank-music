@@ -13,57 +13,34 @@ import ChartAlbums from "~/components/sections/music/chart-albums";
 
 export default component$(() => {
   return (
-    <div class="relative min-h-screen overflow-hidden scroll-smooth bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden scroll-smooth">
       {/* Musical background elements */}
       <div class="absolute inset-0">
-        <div class="absolute top-10 left-10 h-20 w-20 animate-pulse rounded-full bg-amber-500 opacity-20"></div>
-        <div class="absolute top-1/4 right-20 h-16 w-16 animate-bounce rounded-full bg-blue-400 opacity-30"></div>
-        <div class="absolute bottom-20 left-1/4 h-24 w-24 animate-pulse rounded-full bg-indigo-600 opacity-25"></div>
-        <div class="absolute right-10 bottom-1/3 h-12 w-12 animate-bounce rounded-full bg-amber-400 opacity-20"></div>
+        <div class="absolute top-10 left-10 w-20 h-20 bg-amber-500 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute top-1/4 right-20 w-16 h-16 bg-blue-400 rounded-full opacity-30 animate-bounce"></div>
+        <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-indigo-600 rounded-full opacity-25 animate-pulse"></div>
+        <div class="absolute bottom-1/3 right-10 w-12 h-12 bg-amber-400 rounded-full opacity-20 animate-bounce"></div>
       </div>
 
       {/* Navigation Menu */}
-      <nav class="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-md">
-        <div class="mx-auto max-w-6xl px-4 py-4">
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 py-4">
           <div class="flex items-center justify-between">
-            <a
-              href="#hero"
-              class="text-2xl font-bold text-white transition-colors hover:text-amber-300"
-            >
+            <a href="#hero" class="text-2xl font-bold text-white hover:text-amber-300 transition-colors">
               Jon Blanck
             </a>
-            <div class="hidden space-x-8 md:flex">
-              <a
-                href="#hero"
-                class="text-white/80 transition-colors hover:text-white"
-              >
-                Home
-              </a>
-              <a
-                href="#music"
-                class="text-white/80 transition-colors hover:text-white"
-              >
-                Music
-              </a>
-              <a
-                href="#lessons"
-                class="text-white/80 transition-colors hover:text-white"
-              >
-                Lessons
-              </a>
-              <a
-                href="#contact"
-                class="text-white/80 transition-colors hover:text-white"
-              >
-                Contact
-              </a>
+            <div class="hidden md:flex space-x-8">
+              <a href="#hero" class="text-white/80 hover:text-white transition-colors">Home</a>
+              <a href="#music" class="text-white/80 hover:text-white transition-colors">Music</a>
+              <a href="#lessons" class="text-white/80 hover:text-white transition-colors">Lessons</a>              
+              <a href="#contact" class="text-white/80 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
         </div>
       </nav>
 
       <div class="relative z-10 p-4 pt-20">
-        <div class="mx-auto max-w-6xl">
+        <div class="max-w-6xl mx-auto">
           {/* Hero Section */}
           <HeroSection />
 
@@ -71,7 +48,7 @@ export default component$(() => {
           <AchievementsSection /> */}
           {/* Chart Albums */}
           <ChartAlbums />
-
+          
           {/* Services Grid */}
           <ServicesGrid />
 
@@ -100,13 +77,11 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content:
-        "Chart-topping jazz saxophonist, versatile keyboardist, and dedicated music educator. Offering professional performance, recording, and comprehensive music instruction in Seymour, CT.",
+      content: "Chart-topping jazz saxophonist, versatile keyboardist, and dedicated music educator. Offering professional performance, recording, and comprehensive music instruction in Seymour, CT.",
     },
     {
       name: "keywords",
-      content:
-        "Jon Blanck, jazz saxophonist, keyboardist, music lessons, Seymour CT, Verve Jazz Ensemble, music education, saxophone lessons, piano lessons",
+      content: "Jon Blanck, jazz saxophonist, keyboardist, music lessons, Seymour CT, Verve Jazz Ensemble, music education, saxophone lessons, piano lessons",
     },
     {
       name: "author",
@@ -118,8 +93,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:description",
-      content:
-        "Chart-topping jazz artist and comprehensive music educator offering performance and instruction services.",
+      content: "Chart-topping jazz artist and comprehensive music educator offering performance and instruction services.",
     },
     {
       property: "og:type",

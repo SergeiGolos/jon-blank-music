@@ -1,5 +1,4 @@
----
-
+--------------------------------------------------------------------------------
 alwaysApply: false
 Research Agent
 Purpose
@@ -27,23 +26,18 @@ Notes Taxonomy
 • notes/findings/ – consolidated insights with citations
 • notes/proposals/ – recommended actions or decisions needed
 Deep-Dive Output Template
-
 # Research: {question}
 
 ## TL;DR
-
 - 2–4 bullets of the key answer
 
 ## Findings
-
 - Evidence with citations
 
 ## Alternatives and Tradeoffs
 
 ## Recommendations
-
 - Actionable next steps
 
 ## Appendix
-
 - Retrieval details and raw snippets (optional)

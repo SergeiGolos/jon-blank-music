@@ -5,9 +5,7 @@ How to Use
 • Scan the task, recent discussion, filenames, and snippets in the context window for the signals and keywords listed below.
 • If you find a match, read the corresponding file from .ground/ completely before planning, coding, or reviewing.
 • When citing guidance or making decisions, reference the document you read by its path.
-
----
-
+--------------------------------------------------------------------------------
 UX/UI Best Practices
 • File: .ground/UX_UI Best Practices.md
 • Purpose: Human-centered UX/UI, inclusive design, WCAG 2.2 accessibility, and ethical design patterns.
@@ -112,11 +110,8 @@ SOLID — Overview & Principles
 • Use when: Layering apps, decoupling business logic from frameworks/DBs, or enabling testing via abstractions.
 • Signals/keywords: DIP, abstractions, high-level modules, adapters, interface ownership, DI container, ports/adapters.
 • Action: If any of the signals apply, read .ground/SOLID Dependency Inversion.md.
-
----
-
+--------------------------------------------------------------------------------
 Decision Procedure (Quick Checklist)
-
 1. Identify the task type (requirements/planning, UX/UI, docs, code-review, testing, agent/RAG, framework, design/principles).
 2. Match signals/keywords from the context window to the sections above.
 3. When a section matches, read the linked .ground/ document in full before proceeding.

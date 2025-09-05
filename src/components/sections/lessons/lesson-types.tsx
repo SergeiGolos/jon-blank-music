@@ -2,9 +2,9 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <div class="mb-12 grid gap-8 lg:grid-cols-2">
-      <div class="rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-lg">
-        <h3 class="mb-6 text-3xl font-bold text-white">Instruments</h3>
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+        <h3 class="text-3xl font-bold text-white mb-6">Instruments</h3>
         <div class="space-y-4">
           <div class="flex items-center space-x-4">
             <div class="text-3xl">🎷</div>
@@ -16,9 +16,7 @@ export default component$(() => {
           <div class="flex items-center space-x-4">
             <div class="text-3xl">🎹</div>
             <div>
-              <h4 class="text-xl font-semibold text-white">
-                Piano & Keyboards
-              </h4>
+              <h4 class="text-xl font-semibold text-white">Piano & Keyboards</h4>
               <p class="text-white/70">Classical, jazz, and modern styles</p>
             </div>
           </div>
@@ -32,8 +30,8 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-lg">
-        <h3 class="mb-6 text-3xl font-bold text-white">Music Studies</h3>
+      <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+        <h3 class="text-3xl font-bold text-white mb-6">Music Studies</h3>
         <div class="space-y-4">
           <div class="flex items-center space-x-4">
             <div class="text-3xl">📚</div>
@@ -52,9 +50,7 @@ export default component$(() => {
           <div class="flex items-center space-x-4">
             <div class="text-3xl">✍️</div>
             <div>
-              <h4 class="text-xl font-semibold text-white">
-                Composition & Arranging
-              </h4>
+              <h4 class="text-xl font-semibold text-white">Composition & Arranging</h4>
               <p class="text-white/70">Write and arrange your own music</p>
             </div>
           </div>

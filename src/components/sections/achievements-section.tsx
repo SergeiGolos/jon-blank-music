@@ -2,38 +2,36 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <div class="mb-8 rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-lg">
-      <h2 class="mb-6 text-center text-3xl font-bold text-white">
-        Chart-Topping Success
-      </h2>
-      <p class="mb-8 text-center text-white/90">
+    <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 mb-8 border border-white/20">
+      <h2 class="text-3xl font-bold text-white mb-6 text-center">Chart-Topping Success</h2>
+      <p class="text-center text-white/90 mb-8">
         Music Director, Composer & Arranger for the Verve Jazz Ensemble
       </p>
 
-      <div class="grid gap-6 md:grid-cols-4">
-        <div class="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-amber-600/20 p-6 text-center backdrop-blur-sm">
-          <div class="mb-2 text-4xl font-bold text-amber-300">#1</div>
-          <h4 class="mb-2 font-semibold text-white">Connect The Dots</h4>
-          <p class="text-sm text-white/70">USA Jazz Radio Charts</p>
-          <p class="text-xs text-white/60">2018</p>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-xl p-6 text-center backdrop-blur-sm border border-amber-500/30">
+          <div class="text-4xl font-bold text-amber-300 mb-2">#1</div>
+          <h4 class="text-white font-semibold mb-2">Connect The Dots</h4>
+          <p class="text-white/70 text-sm">USA Jazz Radio Charts</p>
+          <p class="text-white/60 text-xs">2018</p>
         </div>
-        <div class="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-blue-600/20 p-6 text-center backdrop-blur-sm">
-          <div class="mb-2 text-4xl font-bold text-blue-300">#5</div>
-          <h4 class="mb-2 font-semibold text-white">It's About Time</h4>
-          <p class="text-sm text-white/70">USA Jazz Radio Charts</p>
-          <p class="text-xs text-white/60">2013</p>
+        <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl p-6 text-center backdrop-blur-sm border border-blue-500/30">
+          <div class="text-4xl font-bold text-blue-300 mb-2">#5</div>
+          <h4 class="text-white font-semibold mb-2">It's About Time</h4>
+          <p class="text-white/70 text-sm">USA Jazz Radio Charts</p>
+          <p class="text-white/60 text-xs">2013</p>
         </div>
-        <div class="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 p-6 text-center backdrop-blur-sm">
-          <div class="mb-2 text-4xl font-bold text-indigo-300">#6</div>
-          <h4 class="mb-2 font-semibold text-white">Night Mode</h4>
-          <p class="text-sm text-white/70">USA Jazz Radio Charts</p>
-          <p class="text-xs text-white/60">2019</p>
+        <div class="bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 rounded-xl p-6 text-center backdrop-blur-sm border border-indigo-500/30">
+          <div class="text-4xl font-bold text-indigo-300 mb-2">#6</div>
+          <h4 class="text-white font-semibold mb-2">Night Mode</h4>
+          <p class="text-white/70 text-sm">USA Jazz Radio Charts</p>
+          <p class="text-white/60 text-xs">2019</p>
         </div>
-        <div class="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-purple-600/20 p-6 text-center backdrop-blur-sm">
-          <div class="mb-2 text-4xl font-bold text-purple-300">#8</div>
-          <h4 class="mb-2 font-semibold text-white">East End Sojourn</h4>
-          <p class="text-sm text-white/70">USA Jazz Radio Charts</p>
-          <p class="text-xs text-white/60">2016</p>
+        <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-xl p-6 text-center backdrop-blur-sm border border-purple-500/30">
+          <div class="text-4xl font-bold text-purple-300 mb-2">#8</div>
+          <h4 class="text-white font-semibold mb-2">East End Sojourn</h4>
+          <p class="text-white/70 text-sm">USA Jazz Radio Charts</p>
+          <p class="text-white/60 text-xs">2016</p>
         </div>
       </div>
     </div>

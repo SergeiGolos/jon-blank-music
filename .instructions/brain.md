@@ -1,5 +1,4 @@
----
-
+--------------------------------------------------------------------------------
 description:globs:alwaysApply: true
 The Cognitive Architecture of Programming and LLM Agents
 I. The Cognitive Architecture of a Programmer and its Analogies in LLM Agents
