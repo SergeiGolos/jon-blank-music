@@ -13,6 +13,7 @@ import ChartAlbums from "~/components/sections/music/chart-albums";
 
 export default component$(() => {
   const navVisible = useSignal(false);
+  const mobileMenuOpen = useSignal(false);
 
   useOnWindow('scroll', $(() => {
     navVisible.value = window.scrollY > 450; // Adjust threshold as needed
@@ -32,21 +33,68 @@ export default component$(() => {
       <nav class={`fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10 transition-opacity duration-300 ${navVisible.value ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div class="max-w-6xl mx-auto px-4 py-4">
           <div class="flex items-center justify-between">
-            <a href="#hero" class="flex items-center text-2xl font-bold text-white hover:text-amber-300 transition-colors">
+            <a href="#hero" class="flex items-center text-xl md:text-2xl font-bold text-white hover:text-amber-300 transition-colors">
               <img
                 src="https://github.com/user-attachments/assets/1cc85012-b7a7-4720-a460-1d4d3648eac6"
                 alt="Jon Blanck"
                 width="48"
                 height="48"
-                class="w-12 h-12 rounded-full mr-3 border-2 border-amber-500/30"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-2 md:mr-3 border-2 border-amber-500/30"
               />
-              JON BLANCK MUSIC
+              <span class="hidden sm:inline">JON BLANCK MUSIC</span>
+              <span class="sm:hidden">JON BLANCK</span>
             </a>
+            
+            {/* Desktop Menu */}
             <div class="hidden md:flex space-x-8">
               <a href="#hero" class="text-white/80 hover:text-white transition-colors">Home</a>
               <a href="#music" class="text-white/80 hover:text-white transition-colors">Music</a>
               <a href="#lessons" class="text-white/80 hover:text-white transition-colors">Lessons</a>              
               <a href="#contact" class="text-white/80 hover:text-white transition-colors">Contact</a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              class="md:hidden flex flex-col items-center justify-center w-8 h-8 text-white"
+              onClick$={() => mobileMenuOpen.value = !mobileMenuOpen.value}
+            >
+              <span class={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen.value ? 'rotate-45 translate-y-1' : ''}`}></span>
+              <span class={`block w-5 h-0.5 bg-white mt-1 transition-all duration-300 ${mobileMenuOpen.value ? 'opacity-0' : ''}`}></span>
+              <span class={`block w-5 h-0.5 bg-white mt-1 transition-all duration-300 ${mobileMenuOpen.value ? '-rotate-45 -translate-y-1' : ''}`}></span>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          <div class={`md:hidden transition-all duration-300 overflow-hidden ${mobileMenuOpen.value ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div class="py-4 space-y-2">
+              <a 
+                href="#hero" 
+                class="block text-white/80 hover:text-white transition-colors py-2"
+                onClick$={() => mobileMenuOpen.value = false}
+              >
+                Home
+              </a>
+              <a 
+                href="#music" 
+                class="block text-white/80 hover:text-white transition-colors py-2"
+                onClick$={() => mobileMenuOpen.value = false}
+              >
+                Music
+              </a>
+              <a 
+                href="#lessons" 
+                class="block text-white/80 hover:text-white transition-colors py-2"
+                onClick$={() => mobileMenuOpen.value = false}
+              >
+                Lessons
+              </a>
+              <a 
+                href="#contact" 
+                class="block text-white/80 hover:text-white transition-colors py-2"
+                onClick$={() => mobileMenuOpen.value = false}
+              >
+                Contact
+              </a>
             </div>
           </div>
         </div>
