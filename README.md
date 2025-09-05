@@ -1,184 +1,237 @@
-# Copilot Do Qwik ⚡️
+# Jon Blanck Music 🎷
 
-A Qwik City application template integrated with GitHub Copilot agents for streamlined development workflows. This project demonstrates how to use Copilot to manage development tasks through GitHub issues and automatically deploy to GitHub Pages.
+A modern, fast-loading professional website for Jon Blanck - chart-topping jazz saxophonist, versatile keyboardist, composer, and dedicated music educator. Built with Qwik for optimal performance and user experience.
+
+## About Jon Blanck
+
+Jon Blanck is a highly accomplished musician based in Seymour, CT, whose career spans multiple genres and roles:
+
+- **Chart-topping Recording Artist**: Music Director for the Verve Jazz Ensemble with albums reaching #1, #5, #6, and #8 on USA jazz radio play charts
+- **Multi-Genre Performer**: Experience across jazz, funk, classical, and commercial music with artists like P-Funk Allstars, New Haven Symphony Orchestra, and more
+- **Dedicated Educator**: Comprehensive music instruction in saxophone, piano, music theory, improvisation, and modern production techniques
+- **Session Musician**: Appeared on over 40 albums and recorded for networks including PBS
 
 ## Features
 
-- 🚀 **Qwik Framework**: Lightning-fast web applications with resumable components
-- 🤖 **Copilot Agents**: Specialized AI agents for different development tasks
-- 📄 **GitHub Pages**: Automatic deployment with GitHub Actions
-- 🎨 **Tailwind CSS**: Modern styling with utility-first CSS framework
-- ⭐ **Star Repo Link**: Corner sticker linking back to the repository
+- 🎵 **Professional Portfolio**: Showcase of recordings, performances, and achievements
+- 📚 **Music Education Hub**: Lesson offerings, scheduling, and educational resources
+- 🚀 **High Performance**: Lightning-fast loading with Qwik framework and optimal SEO
+- 📱 **Responsive Design**: Beautiful experience across all devices
+- 🎨 **Modern UI**: Clean, professional design with Tailwind CSS
 
-## Quick Start
+## Getting Started
 
-### Clone and Setup
+### Prerequisites
+
+- Node.js (v18.17.0 or higher)
+- npm or yarn package manager
+
+### Installation and Local Development
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/SergeiGolos/copilot-do-qwik.git
-   cd copilot-do-qwik
+   git clone https://github.com/SergeiGolos/jon-blank-music.git
+   cd jon-blank-music
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start development server:**
+
    ```bash
    npm run dev
    ```
 
 4. **Open your browser** to `http://localhost:5173`
 
-## Using Copilot Agents
-
-This template includes specialized Copilot agents that help with different aspects of development. Each agent has specific instructions and can be invoked through GitHub issues.
-
-### Available Agents
-
-- **write-code**: Implement small, safe code changes per existing design
-- **debug-code**: Reproduce, isolate, fix bugs and add regression tests
-- **design**: Turn requirements into technical design and documentation
-- **plan**: Break features into atomic, testable tasks
-- **design-test**: Produce testing plans and strategies
-- **review-code**: Review code changes for correctness and quality
-- **research**: Deep-dive on questions and gather findings
-- **bootstrap**: Create foundational documentation
-- **draw**: Visualize architecture and relationships
-- **journal**: Generate external documentation and summaries
-- **catalog**: Maintain library summaries
-
-### How to Use Agents
-
-1. **Create a GitHub Issue** in your repository
-2. **Add a System Prompt** section at the top of the issue body:
-   ```
-   - agent=<agent-key>
-   - instruction_file=.instructions/__<agent-key>.md
-   ```
-3. **Describe your task** in the issue body
-4. **Copilot will process** the issue using the specified agent
-
-Example for writing code:
-```
-- agent=write-code
-- instruction_file=.instructions/__write-code.md
-
-Please implement a new user authentication component with the following requirements...
-```
-
-## Project Structure
-
-```
-├── .github/
-│   ├── workflows/
-│   │   └── deploy.yml          # GitHub Pages deployment workflow
-│   └── copilot-instructions.md # Agent instructions
-├── .instructions/              # Agent-specific instruction files
-├── public/                     # Static assets
-├── src/
-│   ├── components/             # Reusable components
-│   ├── routes/                 # Page routes
-│   └── ...
-├── package.json
-├── vite.config.ts              # Vite configuration with static adapter
-└── README.md
-```
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server with SSR
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint
-- `npm run fmt` - Format code with Prettier
-
-### Building for Production
-
-The project is configured with Qwik's static adapter for GitHub Pages deployment:
+### Build for Production
 
 ```bash
 npm run build
 ```
 
-This generates static files in the `dist/` directory.
+This generates static files in the `dist/` directory optimized for deployment.
 
-## Deployment to GitHub Pages
+## Project Structure
 
-### Automatic Deployment
+```
+├── .blackboard/               # Project specifications and design docs
+├── .ground/                   # Project-wide standards and content sources
+├── .instructions/             # Development agent instructions
+├── public/                    # Static assets (images, icons, etc.)
+├── src/
+│   ├── components/
+│   │   └── sections/          # Page section components
+│   ├── routes/
+│   │   └── index.tsx          # Main homepage
+│   ├── assets/                # Shared assets
+│   └── global.css             # Global styles
+├── server/                    # SSR build output
+├── dist/                      # Production build output
+├── package.json
+├── vite.config.ts
+└── README.md
+```
 
-The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys your application to GitHub Pages on every push to the `main` branch.
+## Development Commands
 
-### Setup Steps
+### Core Development
 
-1. **Enable GitHub Pages** in your repository:
+- `npm run dev` - Start development server with hot reload at http://localhost:5173
+- `npm run build` - Build optimized production version
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint code quality checks
+- `npm run fmt` - Format code with Prettier
+
+### Build Details
+
+- `npm run build.client` - Build client-side bundle
+- `npm run build.server` - Build server-side rendering bundle
+- `npm run build.types` - Type-check TypeScript without emitting files
+
+## Customizing Content
+
+### Key Files to Modify
+
+#### 1. Biographical Content
+
+- **File**: `.ground/jon-blank-bio.md`
+- **Purpose**: Central source of truth for Jon's professional biography
+- **Updates**: Modify this file to update career highlights, achievements, and background information
+
+#### 2. Product Information
+
+- **File**: `.ground/product.md`
+- **Purpose**: Defines the website's vision, target users, and success metrics
+- **Updates**: Adjust vision statements, user personas, and success criteria
+
+#### 3. Homepage Sections
+
+- **File**: `src/routes/index.tsx`
+- **Purpose**: Main page layout and section organization
+- **Updates**: Add/remove sections, modify navigation, adjust meta tags
+
+#### 4. Individual Components
+
+- **Location**: `src/components/sections/`
+- **Key Components**:
+  - `hero-section.tsx` - Main introduction and call-to-action
+  - `music-section.tsx` - Albums, videos, and streaming links
+  - `lessons-section.tsx` - Educational offerings and scheduling
+  - `contact-section.tsx` - Contact information and forms
+  - `footer.tsx` - Site footer with location and copyright
+
+### Updating Dynamic Content
+
+#### Chart Albums
+
+- **File**: Create/modify data files as needed for chart information
+- **Component**: `src/components/sections/music/chart-albums.tsx`
+- **Updates**: Add new albums, update chart positions, modify streaming links
+
+#### Video Performances
+
+- **Location**: Video data is embedded in components
+- **Updates**: Modify video URLs, titles, and descriptions in the music section components
+
+#### Lesson Information
+
+- **Component**: `src/components/sections/lessons-section.tsx`
+- **Updates**: Modify lesson types, pricing, availability, and scheduling information
+
+### Styling and Branding
+
+- **Global Styles**: `src/global.css`
+- **Component Styles**: Tailwind CSS classes within component files
+- **Colors**: Modify the gradient backgrounds and color scheme in components
+- **Typography**: Adjust font classes and text styling
+
+### Assets
+
+- **Location**: `public/` directory
+- **Add**: Photos, album covers, icons, and other media
+- **Reference**: Use `/filename.ext` in components to reference public assets
+
+## Deployment
+
+### Automatic GitHub Pages Deployment
+
+The repository includes GitHub Actions workflow for automatic deployment:
+
+1. **Enable GitHub Pages** in repository settings:
    - Go to Settings → Pages
    - Set Source to "GitHub Actions"
 
-2. **Push to main branch**:
+2. **Deploy on push to main:**
+
    ```bash
    git add .
-   git commit -m "Ready for deployment"
+   git commit -m "Update website content"
    git push origin main
    ```
 
-3. **Wait for deployment**:
-   - The workflow will run automatically
-   - Check the Actions tab for build status
-   - Your site will be available at: `https://<username>.github.io/<repository-name>`
+3. **Check deployment status** in the Actions tab
+4. **Site will be live** at: `https://SergeiGolos.github.io/jon-blank-music`
 
 ### Manual Deployment
 
-If you need to deploy manually:
+The built static files in `dist/` can be deployed to any static hosting service:
 
-1. Build the project: `npm run build`
-2. The static files will be in the `dist/` directory
-3. You can deploy the `dist/` folder to any static hosting service
+- Netlify
+- Vercel
+- AWS S3
+- Traditional web hosting
 
-## Customization
+## Technical Architecture
 
-### Modifying the Copilot Agents
+- **Framework**: Qwik for optimal performance and resumability
+- **Styling**: Tailwind CSS for rapid, consistent styling
+- **TypeScript**: Full type safety and developer experience
+- **Static Generation**: Pre-rendered for fast loading and SEO
+- **Responsive**: Mobile-first design approach
 
-- Agent instructions are stored in `.instructions/` directory
-- Each agent has its own `.md` file with specific guidelines
-- Modify these files to customize agent behavior for your project
+## Content Management Philosophy
 
-### Styling
+This site follows a "content-as-code" approach where:
 
-- Uses Tailwind CSS for styling
-- Global styles in `src/global.css`
-- Component-specific styles can be added inline or via CSS modules
+- All content is version-controlled and reviewable
+- Changes are deployed through standard development workflows
+- Content updates benefit from the same quality controls as code
+- The `.ground/` directory serves as the single source of truth for biographical and product information
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally with `npm run dev`
-5. Submit a pull request
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/update-content`
+3. **Make your changes** following the file structure above
+4. **Test locally**: `npm run dev` to verify changes
+5. **Build and verify**: `npm run build` to ensure production build works
+6. **Submit a pull request** with clear description of changes
 
-## Resources
+## Support and Resources
+
+### Qwik Framework
 
 - [Qwik Documentation](https://qwik.dev/)
 - [Qwik City Guide](https://qwik.dev/qwikcity/overview/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
-- [GitHub Pages](https://pages.github.com/)
+
+### Styling and Design
+
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Tailwind Component Examples](https://tailwindui.com/)
+
+### Development Tools
+
+- [Vite Documentation](https://vitejs.dev/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
 ---
 
-Built with ❤️ using Qwik and GitHub Copilot
+Built with ❤️ using Qwik, TypeScript, and Tailwind CSS
 
-## Static Site Generator (Node.js)
-
-Be sure to configure your server to serve very long cache headers for the `build/**/*.js` files.
-
-Typically you'd set the `Cache-Control` header for those files to `public, max-age=31536000, immutable`.
-
-```shell
-npm run build.server
-```
+© 2024 Jon Blanck Music. Professional musician and educator based in Seymour, CT.
