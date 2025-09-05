@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useOnWindow, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 // Import all the new components
@@ -12,6 +12,12 @@ import Footer from "~/components/sections/footer";
 import ChartAlbums from "~/components/sections/music/chart-albums";
 
 export default component$(() => {
+  const navVisible = useSignal(false);
+
+  useOnWindow('scroll', $(() => {
+    navVisible.value = window.scrollY > 450; // Adjust threshold as needed
+  }));
+
   return (
     <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden scroll-smooth">
       {/* Musical background elements */}
@@ -23,11 +29,18 @@ export default component$(() => {
       </div>
 
       {/* Navigation Menu */}
-      <nav class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <nav class={`fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10 transition-opacity duration-300 ${navVisible.value ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div class="max-w-6xl mx-auto px-4 py-4">
           <div class="flex items-center justify-between">
-            <a href="#hero" class="text-2xl font-bold text-white hover:text-amber-300 transition-colors">
-              Jon Blanck
+            <a href="#hero" class="flex items-center text-2xl font-bold text-white hover:text-amber-300 transition-colors">
+              <img
+                src="https://github.com/user-attachments/assets/1cc85012-b7a7-4720-a460-1d4d3648eac6"
+                alt="Jon Blanck"
+                width="48"
+                height="48"
+                class="w-12 h-12 rounded-full mr-3 border-2 border-amber-500/30"
+              />
+              JON BLANCK MUSIC
             </a>
             <div class="hidden md:flex space-x-8">
               <a href="#hero" class="text-white/80 hover:text-white transition-colors">Home</a>
