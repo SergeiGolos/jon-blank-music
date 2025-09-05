@@ -35,7 +35,7 @@ export default component$(() => {
           <div class="flex items-center justify-between">
             <a href="#hero" class="flex items-center text-xl md:text-2xl font-bold text-white hover:text-amber-300 transition-colors">
               <img
-                src="https://github.com/user-attachments/assets/1cc85012-b7a7-4720-a460-1d4d3648eac6"
+                src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3e%3ccircle%20cx='24'%20cy='24'%20r='20'%20fill='%23f59e0b'/%3e%3ctext%20x='24'%20y='30'%20text-anchor='middle'%20fill='white'%20font-family='Arial'%20font-size='20'%20font-weight='bold'%3eJB%3c/text%3e%3c/svg%3e"
                 alt="Jon Blanck"
                 width="48"
                 height="48"

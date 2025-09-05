@@ -9,7 +9,7 @@ export default component$(() => {
           <div class="relative">
             <div class="w-32 h-32 md:w-64 md:h-64 rounded-full shadow-2xl border-4 border-amber-500/30 bg-gradient-to-br from-amber-500/40 to-blue-600/40 backdrop-blur-sm flex items-center justify-center overflow-hidden">
               <img
-                src="https://github.com/user-attachments/assets/1cc85012-b7a7-4720-a460-1d4d3648eac6"
+                src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20256%20256'%3e%3ccircle%20cx='128'%20cy='128'%20r='120'%20fill='%23f59e0b'/%3e%3ctext%20x='128'%20y='140'%20text-anchor='middle'%20fill='white'%20font-family='Arial'%20font-size='48'%20font-weight='bold'%3eJON%3c/text%3e%3ctext%20x='128'%20y='180'%20text-anchor='middle'%20fill='white'%20font-family='Arial'%20font-size='24'%3eBLANCK%3c/text%3e%3c/svg%3e"
                 alt="Jon Blanck performing with saxophone on stage"
                 width="256"
                 height="256"

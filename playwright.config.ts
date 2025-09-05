@@ -30,15 +30,19 @@ export default defineConfig({
     // Take screenshots on failure
     screenshot: 'only-on-failure',
     
-    // Take videos on failure
-    video: 'retain-on-failure',
+    // Disable video recording to avoid ffmpeg issues
+    video: 'off',
   },
   
   // Configure projects for major browsers
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        // Use system Chrome instead of downloading
+        channel: 'chrome',
+      },
     },
     // Can add more browsers later if needed
     // {
