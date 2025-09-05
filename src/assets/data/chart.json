@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Connect The Dots",
+    "year": 2018,
+    "chartNumber": 1,
+    "links": [
+      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20connect%20the%20dots" },
+      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20connect%20the%20dots" }
+    ]
+  },
+  {
+    "title": "It's About Time",
+    "year": 2013,
+    "chartNumber": 5,
+    "links": [
+      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20it's%20about%20time" },
+      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20it's%20about%20time" }
+    ]
+  },
+  {
+    "title": "Night Mode",
+    "year": 2019,
+    "chartNumber": 6,
+    "links": [
+      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20night%20mode" },
+      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20night%20mode" }
+    ]
+  },
+  {
+    "title": "East End Sojourn",
+    "year": 2016,
+    "chartNumber": 8,
+    "links": [
+      { "platform": "Spotify", "url": "https://open.spotify.com/search/verve%20jazz%20ensemble%20east%20end%20sojourn" },
+      { "platform": "Apple Music", "url": "https://music.apple.com/search?term=verve%20jazz%20ensemble%20east%20end%20sojourn" }
+    ]
+  }
+]
