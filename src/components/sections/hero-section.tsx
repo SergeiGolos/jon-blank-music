@@ -40,13 +40,14 @@ export default component$(() => {
       </div>
 
       <div class="flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+          Listen to Music
+        </a>
         <a href="#lessons" class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
           Book Lessons
         </a>
+        
         <a href="#music" class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold transition-colors backdrop-blur-sm border border-white/20">
-          Listen to Music
-        </a>
-        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
           Contact Jon
         </a>
       </div>

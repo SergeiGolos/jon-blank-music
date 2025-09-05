@@ -3,13 +3,13 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 // Import all the new components
 import HeroSection from "~/components/sections/hero-section";
-import AchievementsSection from "~/components/sections/achievements-section";
 import ServicesGrid from "~/components/sections/services-grid";
 import ExperienceHighlight from "~/components/sections/experience-highlight";
 import MusicSection from "~/components/sections/music-section";
 import LessonsSection from "~/components/sections/lessons-section";
 import ContactSection from "~/components/sections/contact-section";
 import Footer from "~/components/sections/footer";
+import ChartAlbums from "~/components/sections/music/chart-albums";
 
 export default component$(() => {
   return (
@@ -44,9 +44,11 @@ export default component$(() => {
           {/* Hero Section */}
           <HeroSection />
 
-          {/* Achievements Section */}
-          <AchievementsSection />
-
+          {/* Achievements Section
+          <AchievementsSection /> */}
+          {/* Chart Albums */}
+          <ChartAlbums />
+          
           {/* Services Grid */}
           <ServicesGrid />
 

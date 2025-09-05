@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import ChartAlbums from "./music/chart-albums";
 import VideoHighlights from "./music/video-highlights";
 import StreamingLinks from "./music/streaming-links";
 
@@ -65,9 +64,7 @@ export default component$(() => {
         <p class="text-xl text-amber-200">
           Experience Jon's versatile musical artistry across multiple genres
         </p>
-      </div>
-
-      <ChartAlbums />
+      </div>     
 
       <VideoHighlights videos={videosData} />
 
