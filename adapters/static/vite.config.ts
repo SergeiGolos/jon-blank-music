@@ -8,7 +8,7 @@ export default extendConfig(baseConfig, () => {
     build: {
       ssr: true,
       rollupOptions: {
-        input: ["@qwik-city-plan"],
+        input: ["src/entry.ssr.tsx", "@qwik-city-plan"],
       },
     },
     plugins: [
