@@ -3,3 +3,8 @@ node_modules/
 dist/
 server/
 tmp/
+
+# Playwright test artifacts
+/test-results/
+/playwright-report/
+/playwright/.cache/
