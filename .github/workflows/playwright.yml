@@ -18,17 +18,42 @@ jobs:
         node-version: '20'
         cache: 'npm'
     
+    - name: Cache Playwright Browsers
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          playwright-browsers-${{ runner.os }}-
+    
     - name: Install dependencies
       run: npm ci
     
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps chromium
+      run: |
+        # Try multiple times to install browsers with different strategies
+        for attempt in 1 2 3; do
+          echo "Attempt $attempt to install Playwright browsers..."
+          if npx playwright install --with-deps chromium; then
+            echo "Browser installation successful on attempt $attempt"
+            break
+          elif [ $attempt -eq 3 ]; then
+            echo "Browser installation failed after 3 attempts"
+            exit 1
+          else
+            echo "Browser installation failed on attempt $attempt, retrying..."
+            # Clean up and wait before retry
+            rm -rf ~/.cache/ms-playwright 2>/dev/null || true
+            sleep 10
+          fi
+        done
     
     - name: Build application
       run: npm run build
       
     - name: Run Playwright UI tests
       run: npm run test
+      continue-on-error: false
       
     - name: Generate screenshots for build artifacts
       run: npm run test:screenshots
