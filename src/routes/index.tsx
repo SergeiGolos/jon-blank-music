@@ -11,6 +11,9 @@ import ContactSection from "~/components/sections/contact-section";
 import Footer from "~/components/sections/footer";
 import ChartAlbums from "~/components/sections/music/chart-albums";
 
+// Import headshot image
+import headshotImage from "~/assets/images/jon-blanck-headshot.jpg?url";
+
 export default component$(() => {
   const navVisible = useSignal(false);
   const mobileMenuOpen = useSignal(false);
@@ -35,11 +38,16 @@ export default component$(() => {
           <div class="flex items-center justify-between">
             <a href="#hero" class="flex items-center text-xl md:text-2xl font-bold text-white hover:text-amber-300 transition-colors">
               <img
-                src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3e%3ccircle%20cx='24'%20cy='24'%20r='20'%20fill='%23f59e0b'/%3e%3ctext%20x='24'%20y='30'%20text-anchor='middle'%20fill='white'%20font-family='Arial'%20font-size='20'%20font-weight='bold'%3eJB%3c/text%3e%3c/svg%3e"
-                alt="Jon Blanck"
+                src={headshotImage}
+                alt="Jon Blanck - Professional Saxophonist and Music Educator"
                 width="48"
                 height="48"
-                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-2 md:mr-3 border-2 border-amber-500/30"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-2 md:mr-3 border-2 border-amber-500/30 object-cover"
+                onError$={(e) => {
+                  // Fallback to SVG placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.src = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3e%3ccircle%20cx='24'%20cy='24'%20r='20'%20fill='%23f59e0b'/%3e%3ctext%20x='24'%20y='30'%20text-anchor='middle'%20fill='white'%20font-family='Arial'%20font-size='20'%20font-weight='bold'%3eJB%3c/text%3e%3c/svg%3e";
+                }}
               />
               <span class="hidden sm:inline">JON BLANCK MUSIC</span>
               <span class="sm:hidden">JON BLANCK</span>
