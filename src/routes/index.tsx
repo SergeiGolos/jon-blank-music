@@ -11,6 +11,9 @@ import ContactSection from "~/components/sections/contact-section";
 import Footer from "~/components/sections/footer";
 import ChartAlbums from "~/components/sections/music/chart-albums";
 
+// Import headshot image
+import headshotImage from "~/assets/images/jon-blanck-headshot.jpg?url";
+
 export default component$(() => {
   const navVisible = useSignal(false);
   const mobileMenuOpen = useSignal(false);
@@ -35,7 +38,7 @@ export default component$(() => {
           <div class="flex items-center justify-between">
             <a href="#hero" class="flex items-center text-xl md:text-2xl font-bold text-white hover:text-amber-300 transition-colors">
               <img
-                src="/jon-blanck-headshot.jpg"
+                src={headshotImage}
                 alt="Jon Blanck - Professional Saxophonist and Music Educator"
                 width="48"
                 height="48"

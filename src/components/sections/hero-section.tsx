@@ -1,5 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 
+// Import headshot image
+import headshotImage from "~/assets/images/jon-blanck-headshot.jpg?url";
+
 export default component$(() => {
   return (
     <section id="hero" class="text-center py-10 md:py-20">
@@ -9,7 +12,7 @@ export default component$(() => {
           <div class="relative">
             <div class="w-32 h-32 md:w-64 md:h-64 rounded-full shadow-2xl border-4 border-amber-500/30 bg-gradient-to-br from-amber-500/40 to-blue-600/40 backdrop-blur-sm flex items-center justify-center overflow-hidden">
               <img
-                src="/jon-blanck-headshot.jpg"
+                src={headshotImage}
                 alt="Jon Blanck performing with saxophone on stage"
                 width="256"
                 height="256"
